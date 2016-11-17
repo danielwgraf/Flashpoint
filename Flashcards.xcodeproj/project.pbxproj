@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		D72B144E1DC28D8F005429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B144D1DC28D8F005429F1 /* AppDelegate.swift */; };
 		D72B14501DC28D8F005429F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B144F1DC28D8F005429F1 /* ViewController.swift */; };
-		D72B14531DC28D8F005429F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72B14511DC28D8F005429F1 /* Main.storyboard */; };
 		D72B14551DC28D8F005429F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D72B14541DC28D8F005429F1 /* Assets.xcassets */; };
 		D72B14581DC28D8F005429F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72B14561DC28D8F005429F1 /* LaunchScreen.storyboard */; };
 		D72B14631DC28D8F005429F1 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B14621DC28D8F005429F1 /* FlashcardsTests.swift */; };
 		D72B146E1DC28D8F005429F1 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B146D1DC28D8F005429F1 /* FlashcardsUITests.swift */; };
+		D7415FCA1DDD4FCA00CBB76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7415FC81DDD4FCA00CBB76C /* Main.storyboard */; };
+		D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FCD1DDD516100CBB76C /* CardViewController.swift */; };
+		D7415FD11DDD682300CBB76C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7415FCF1DDD682300CBB76C /* Login.storyboard */; };
+		D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD01DDD682300CBB76C /* LoginViewController.swift */; };
+		D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 		D72B144A1DC28D8F005429F1 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72B144D1DC28D8F005429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D72B144F1DC28D8F005429F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D72B14521DC28D8F005429F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D72B14541DC28D8F005429F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72B14571DC28D8F005429F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D72B14591DC28D8F005429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		D72B14691DC28D8F005429F1 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72B146D1DC28D8F005429F1 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		D72B146F1DC28D8F005429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7415FC91DDD4FCA00CBB76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Flashcards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7415FCD1DDD516100CBB76C /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		D7415FCF1DDD682300CBB76C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D7415FD01DDD682300CBB76C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +105,10 @@
 		D72B144C1DC28D8F005429F1 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				D7415FCB1DDD4FD900CBB76C /* Storyboards */,
+				D7415FCC1DDD4FEB00CBB76C /* View Controllers */,
 				D72B144D1DC28D8F005429F1 /* AppDelegate.swift */,
-				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
-				D72B14511DC28D8F005429F1 /* Main.storyboard */,
 				D72B14541DC28D8F005429F1 /* Assets.xcassets */,
-				D72B14561DC28D8F005429F1 /* LaunchScreen.storyboard */,
 				D72B14591DC28D8F005429F1 /* Info.plist */,
 			);
 			path = Flashcards;
@@ -123,6 +130,27 @@
 				D72B146F1DC28D8F005429F1 /* Info.plist */,
 			);
 			path = FlashcardsUITests;
+			sourceTree = "<group>";
+		};
+		D7415FCB1DDD4FD900CBB76C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D72B14561DC28D8F005429F1 /* LaunchScreen.storyboard */,
+				D7415FCF1DDD682300CBB76C /* Login.storyboard */,
+				D7415FC81DDD4FCA00CBB76C /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D7415FCC1DDD4FEB00CBB76C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7415FCD1DDD516100CBB76C /* CardViewController.swift */,
+				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
+				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
+				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +260,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7415FD11DDD682300CBB76C /* Login.storyboard in Resources */,
+				D7415FCA1DDD4FCA00CBB76C /* Main.storyboard in Resources */,
 				D72B14581DC28D8F005429F1 /* LaunchScreen.storyboard in Resources */,
 				D72B14551DC28D8F005429F1 /* Assets.xcassets in Resources */,
-				D72B14531DC28D8F005429F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */,
 				D72B14501DC28D8F005429F1 /* ViewController.swift in Sources */,
+				D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */,
 				D72B144E1DC28D8F005429F1 /* AppDelegate.swift in Sources */,
+				D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,20 +328,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D72B14511DC28D8F005429F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D72B14521DC28D8F005429F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D72B14561DC28D8F005429F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D72B14571DC28D8F005429F1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D7415FC81DDD4FCA00CBB76C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7415FC91DDD4FCA00CBB76C /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -505,6 +538,7 @@
 				D72B14741DC28D8F005429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D72B14751DC28D8F005429F1 /* Build configuration list for PBXNativeTarget "FlashcardsTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +547,7 @@
 				D72B14771DC28D8F005429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D72B14781DC28D8F005429F1 /* Build configuration list for PBXNativeTarget "FlashcardsUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +556,7 @@
 				D72B147A1DC28D8F005429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
