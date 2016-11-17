@@ -18,6 +18,11 @@
 		D7415FD11DDD682300CBB76C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7415FCF1DDD682300CBB76C /* Login.storyboard */; };
 		D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD01DDD682300CBB76C /* LoginViewController.swift */; };
 		D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */; };
+		D7415FD81DDDEC3900CBB76C /* DeckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */; };
+		D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */; };
+		D7415FDE1DDDED7C00CBB76C /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FDD1DDDED7C00CBB76C /* Deck.swift */; };
+		D7415FE21DDDF5E100CBB76C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FE01DDDF5E100CBB76C /* TableViewCell.swift */; };
+		D7415FE31DDDF5E100CBB76C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7415FE11DDDF5E100CBB76C /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		D7415FCF1DDD682300CBB76C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D7415FD01DDD682300CBB76C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
+		D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewController.swift; sourceTree = "<group>"; };
+		D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewModel.swift; sourceTree = "<group>"; };
+		D7415FDD1DDDED7C00CBB76C /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		D7415FE01DDDF5E100CBB76C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		D7415FE11DDDF5E100CBB76C /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +115,11 @@
 		D72B144C1DC28D8F005429F1 /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				D7415FD91DDDEC5100CBB76C /* Models */,
+				D7415FDF1DDDF58C00CBB76C /* Nibs */,
 				D7415FCB1DDD4FD900CBB76C /* Storyboards */,
 				D7415FCC1DDD4FEB00CBB76C /* View Controllers */,
+				D7415FDC1DDDED5400CBB76C /* View Models */,
 				D72B144D1DC28D8F005429F1 /* AppDelegate.swift */,
 				D72B14541DC28D8F005429F1 /* Assets.xcassets */,
 				D72B14591DC28D8F005429F1 /* Info.plist */,
@@ -146,11 +159,37 @@
 			isa = PBXGroup;
 			children = (
 				D7415FCD1DDD516100CBB76C /* CardViewController.swift */,
+				D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */,
+				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
 				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
 				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
-				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D7415FD91DDDEC5100CBB76C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7415FDD1DDDED7C00CBB76C /* Deck.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D7415FDC1DDDED5400CBB76C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
+		D7415FDF1DDDF58C00CBB76C /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				D7415FE01DDDF5E100CBB76C /* TableViewCell.swift */,
+				D7415FE11DDDF5E100CBB76C /* TableViewCell.xib */,
+			);
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7415FD11DDD682300CBB76C /* Login.storyboard in Resources */,
+				D7415FE31DDDF5E100CBB76C /* TableViewCell.xib in Resources */,
 				D7415FCA1DDD4FCA00CBB76C /* Main.storyboard in Resources */,
 				D72B14581DC28D8F005429F1 /* LaunchScreen.storyboard in Resources */,
 				D72B14551DC28D8F005429F1 /* Assets.xcassets in Resources */,
@@ -289,7 +329,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */,
+				D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */,
+				D7415FD81DDDEC3900CBB76C /* DeckListViewController.swift in Sources */,
+				D7415FE21DDDF5E100CBB76C /* TableViewCell.swift in Sources */,
 				D72B14501DC28D8F005429F1 /* ViewController.swift in Sources */,
+				D7415FDE1DDDED7C00CBB76C /* Deck.swift in Sources */,
 				D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */,
 				D72B144E1DC28D8F005429F1 /* AppDelegate.swift in Sources */,
 				D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */,
