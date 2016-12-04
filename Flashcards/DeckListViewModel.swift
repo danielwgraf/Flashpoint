@@ -12,9 +12,12 @@ class DeckListViewModel {
     var decks = [Deck]()
     var filteredDecks = [Deck]()
     
+    var deck = Deck()
+    
 //    let client = SearchRepositoriesClient()
 //    let parser = RepositoriesParser()
-    
+
+    func refresh() {
 //    func refresh(completion: @escaping () -> Void) {
 //        client.fetchRepositories { [unowned self] data in
 //            if let repositories = self.parser.repositoriesFromSearchResponse(data) {
@@ -22,7 +25,9 @@ class DeckListViewModel {
 //            }
 //            completion()
 //        }
-//    }
+        
+        decks.append(deck)
+    }
     
     func numberOfRows() -> Int {
         if filteredDecks.isEmpty {

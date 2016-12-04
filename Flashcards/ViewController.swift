@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     
     var showingBack = true
     
+    var isPresented = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +40,24 @@ class ViewController: UIViewController {
         cardView.addGestureRecognizer(singleTap)
         cardView.isUserInteractionEnabled = true
         
-        cardView.addSubview(back)
+       cardView.addSubview(back)
         
         
         
         
     }
     
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
+    // MARK: Rotate
+    @IBAction func dismiss() {
+        isPresented = false
+        self.presentingViewController!.dismiss(animated: true, completion: nil);
     }
+
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

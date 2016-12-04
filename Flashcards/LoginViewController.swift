@@ -27,10 +27,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
         // Create a new "Main Storyboard" instance.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // Create an instance of the storyboard's initial view controller.
-        let controller = storyboard.instantiateViewController(withIdentifier: "DeckListViewController") as UIViewController
+        let mainController = ContainerViewController()
+//        let navController = storyboard.instantiateViewController(withIdentifier: "Nav") as! UINavigationController
         do {
             if self.username.text! == "" || self.password.text! == "" {
         
@@ -55,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } //catch (NSException) {
         
         if success == 1 {
-            present(controller, animated: true, completion: nil)
+            present(mainController, animated: true, completion: nil)
         }
  
 //        NSInteger success = 0;
@@ -208,5 +209,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

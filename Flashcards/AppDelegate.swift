@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        
         return true
     }
 
@@ -41,6 +43,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: Orientation
+    
+    
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        print("\n\n\n1\n\n\n")
+        
+        print(self.window?.rootViewController?.presentedViewController)
+        if self.window?.rootViewController?.presentedViewController is ContainerViewController {
+            print("\n\n\n1a\n\n\n")
+            
+            let containView = self.window!.rootViewController!.presentedViewController as! ContainerViewController
+            
+            let navController = containView.centerNavigationController
+            if navController != nil {
+                print("\n\n\n1aa\n\n\n")
+                print(navController?.visibleViewController)
+                if navController?.visibleViewController is ViewController {
+                    print("\n\n\n1aaa\n\n\n")
+                    let cardController = navController?.visibleViewController as! ViewController
+            
+                    if cardController.isPresented {
+                        print("\n\n\n1aaaa\n\n\n")
+                        return UIInterfaceOrientationMask.landscape;
+                    } else {
+                        print("\n\n\n1aaab\n\n\n")
+                        return UIInterfaceOrientationMask.portrait;
+                    }
+                } else {
+                    print("\n\n\n1aab\n\n\n")
+                    return UIInterfaceOrientationMask.portrait;
+                }
+            } else {
+                print("\n\n\n1ab\n\n\n")
+                return UIInterfaceOrientationMask.portrait;
+            }
+
+        } else {
+            print("\n\n\n1b\n\n\n")
+            return UIInterfaceOrientationMask.portrait;
+        }
+        
+    }
 
 }
 

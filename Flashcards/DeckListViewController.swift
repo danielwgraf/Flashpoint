@@ -27,6 +27,7 @@ class DeckListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         setupSearchBar()
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        viewModel.refresh()
 //        viewModel.refresh { [unowned self] in
 //            dispatch_get_main_queue().asynchronously() {
 //                self.tableView.reloadData()
