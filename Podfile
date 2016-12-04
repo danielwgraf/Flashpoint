@@ -9,9 +9,9 @@ target ‘Flashcards’ do
   pod ‘AlamofireSwiftyJSON’
   
   # Facebook Pods
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
+  pod ‘FacebookCore‘
+  pod ‘FacebookLogin‘
+  pod ‘FacebookShare‘
 
   # Pods for Flashcards
 

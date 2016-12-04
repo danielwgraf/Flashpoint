@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -162,6 +163,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
+        loginButton.center = view.center
+        
+        view.addSubview(loginButton)
+        
         self.username.delegate = self
         self.password.delegate = self
         
