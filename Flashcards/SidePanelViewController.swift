@@ -36,9 +36,10 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logoutButton = LoginButton(readPermissions: [ .publicProfile ])
+        let logoutButtonFrame = CGRect(x: 0, y: 0, width: 85, height: 30)
+        let logoutButton = LoginButton(frame: logoutButtonFrame, readPermissions: [ .publicProfile ])
         
-        logoutButton.center.x = logoutButton.frame.width/2
+        logoutButton.center.x = view.center.x*0.4
         logoutButton.center.y = view.center.y+275
         
         logoutButton.delegate = self
