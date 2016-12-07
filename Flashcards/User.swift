@@ -8,17 +8,34 @@
 
 import Foundation
 
-struct User {
+class User {
     
-    let id: Int
-    let decks: [Deck]
-    let friends: [User]
+    static var id: Int = Int()
+    static var email: String = String()
+    static var facebook_id: Int = Int()
+    static var decks: [Int] = []// Will store deck ids
+    static var friends: [Int] = []// Will store user ids
     
-    static let sharedInstance = User()
+    //static let sharedInstance = User()
     
-    init(id: Int) {
-        self.id = id
-        self.decks = []
-        self.friends = []
+    class func reset() {
+        id = -1
+        email = ""
+        decks = []
+        friends = []
+    }
+    
+    class func getUserDecks() {
+        let serverAgent = ServerAgent.sharedInstance
+        let allDecks = serverAgent.decks
+        for deck in allDecks {
+            if deck.creator_id == User.id {
+                User.decks.append(deck.id)
+            }
+        }
+    }
+    
+    func getUserFriends() {
+        //var allUsers
     }
 }

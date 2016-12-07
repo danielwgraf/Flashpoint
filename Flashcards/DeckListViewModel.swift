@@ -12,7 +12,7 @@ class DeckListViewModel {
     var decks = [Deck]()
     var filteredDecks = [Deck]()
     
-    var deck = Deck()
+    //var deck = Deck()
     
 //    let client = SearchRepositoriesClient()
 //    let parser = RepositoriesParser()
@@ -26,7 +26,7 @@ class DeckListViewModel {
 //            completion()
 //        }
         
-        decks.append(deck)
+        //decks.append(deck)
     }
     
     func numberOfRows() -> Int {
@@ -43,9 +43,9 @@ class DeckListViewModel {
         }
         
         if filteredDecks.isEmpty {
-            return decks[indexPath.row].name
+            return decks[indexPath.row].deck_name
         } else {
-            return filteredDecks[indexPath.row].name
+            return filteredDecks[indexPath.row].deck_name
         }
     }
     
@@ -68,7 +68,7 @@ class DeckListViewModel {
     
     func updateFiltering(searchText: String) -> Void {
         filteredDecks = self.decks.filter { deck in
-            return deck.name.lowercased().contains(searchText.lowercased())
+            return deck.deck_name.lowercased().contains(searchText.lowercased())
         }
     }
     

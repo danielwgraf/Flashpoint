@@ -11,6 +11,9 @@ import SwiftyJSON
 import Alamofire
 
 class ServerAgent {
+    
+    var cards = [Flashcard]()
+    var decks = [Deck]()
 
     init() {
         self.getCards()
@@ -37,7 +40,7 @@ class ServerAgent {
                 let word = card["word"]
                 let definition = card["definition"]
                 let deck_id = card["deck_id"]
-                print(id,word,definition,deck_id)
+                //print(id,word,definition,deck_id)
                 //let cardObj = Flashcard(id: id,deck_id: deck_id,word: word,definition: definition)
 
             }
@@ -61,16 +64,18 @@ class ServerAgent {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! NSArray
             for i in 0..<readableJSON.count {
                 var deck = JSON(readableJSON[i])
-                let id = deck["id"]
-                let deck_name = deck["deck_name"]
-                let shared_ids = deck["shared_ids"]
-                let user_id = deck["user_id"]
-                print(id,deck_name,shared_ids,user_id)
-//                let deckObj = Deck()
-//                deckObj.id = id
-//                deckObj.deck_name = deck_name
-//                deckObj.shared_ids = shared_ids
-//                deckObj.user_id = user_id
+                let id = deck["id"].int
+                let deck_name = deck["deck_name"].string
+                let shared_ids = deck["shared_ids"].arrayObject
+                let user_id = deck["user_id"].int
+                
+                if (id != nil)&&(deck_name != nil)&&(user_id != nil) {
+                    var deckObj = Deck(id: id!, deck_name: deck_name!, creator_id: user_id!)
+                    if shared_ids != nil {
+                        deckObj.shared_ids = (shared_ids as? [Int])!
+                    }
+                    decks.append(deckObj)
+                }
             }
         }
         catch {

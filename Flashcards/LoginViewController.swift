@@ -15,8 +15,9 @@ import FacebookLogin
 class LoginViewController: UIViewController, LoginButtonDelegate {
     
     
-    var users:[(Int, String)] = [(Int, String)]()
+    var users:[(Int, Int)] = [(Int, Int)]()
     var facebookEmail:String = String()
+    var facebook_id: Int = Int()
     var userId: Int = Int()
     
     
@@ -28,15 +29,6 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             // Navigate to other view
             checkFacebookEmail(accessToken: AccessToken.current!)
             //works just commenting out
-//            let parameters:Parameters = ["user": [
-//                "id": 3,
-//                "email": "grafmark59@gmail.com"
-//                ]]
-//            let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
-//            Alamofire.request("https://morning-castle-56124.herokuapp.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
-//                var statusCode = response.response?.statusCode
-//                print(statusCode) //201 vs 500
-            
                 
 //                if (statusCode == 200){
 //                    self.setAuthToken(JSONData: response.data!)
@@ -110,12 +102,12 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                         print("ID error")
                         break
                     }
-                    print("FacebookID:\(id)")
-                    guard let email = responseDictionary["email"] else {
-                        print("Email error")
-                        break
-                    }
-                    self.facebookEmail = email as! String
+//                    guard let email = responseDictionary["email"] else {
+//                        print("Email error")
+//                        break
+//                    }
+                    // Divide by 10million because FB_ID is too large
+                    self.facebook_id = (Int(id as! String)!)/10000000
                     self.getUsers()
                 }
             }
@@ -124,12 +116,10 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     }
     
     func checkIfUserExists() {
-        print("OUT")
-        print(self.users)
-        let emails = self.users.map{$0.1}
-        if let index = emails.index(of: self.facebookEmail) {
-            print(self.users[index])
+        let facebook_ids = self.users.map{$0.1}
+        if facebook_ids.index(of: self.facebook_id) != nil {
             print("contains")
+            currentUserSetup(id: self.userId, facebook_id: self.facebook_id)
         } else {
             print("create")
             createUser()
@@ -151,10 +141,9 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             for i in 0..<readableJSON.count {
                 var user = JSON(readableJSON[i])
                 let id = user["id"].int
-                let email = user["email"].string
-                print("This is an email \(email)\n")
-                if email != nil {
-                    self.users.append((id!, email!))
+                let facebook_id = user["facebook_id"].int
+                if facebook_id != nil {
+                    self.users.append((id!, facebook_id!))
                 }
             }
         }
@@ -168,19 +157,27 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         let id = nextAvailableId()
         let parameters:Parameters = ["user": [
             "id": id,
-            "email": "email\(id)@test.com"  //self.facebookEmail //Should be this facebook email, not test
+            "facebook_id": self.facebook_id/10000000//"email\(id)@test.com" //Should be this facebook email, not test
             ]]
         let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
         Alamofire.request("https://morning-castle-56124.herokuapp.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
-            let statusCode = response.response?.statusCode
-            print(statusCode) //201 vs 500
+            //let statusCode = response.response?.statusCode
+            //print(statusCode) //201 vs 500
         })
+        
+        currentUserSetup(id: id, facebook_id: facebook_id)
+    }
+    
+    func currentUserSetup(id: Int, facebook_id: Int) {
+        User.id = id
+        User.facebook_id = facebook_id
+        //User.friends = User.getUserFriends()
+        User.getUserDecks()
     }
     
     func nextAvailableId() -> Int {
         let ids = self.users.map{$0.0}
-        print(ids)
-        var i = 2
+        var i = 3
         while true {
             if !ids.contains(i) {
                 return i
