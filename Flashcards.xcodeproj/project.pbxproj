@@ -211,7 +211,6 @@
 				D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */,
 				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
 				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
-				D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */,
 				D75549681DF099D900665FB0 /* SidePanelViewController.swift */,
 				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
 			);
@@ -223,6 +222,7 @@
 			children = (
 				D75549511DEF80A200665FB0 /* Deck.swift */,
 				D75549531DEF80A200665FB0 /* Flashcard.swift */,
+				D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
