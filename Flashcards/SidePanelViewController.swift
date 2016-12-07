@@ -9,6 +9,9 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import FBSDKLoginKit
+
+
 
 protocol SidePanelViewControllerDelegate {
   //func animalSelected(_ animal: Animal)
@@ -25,17 +28,7 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
         
     }
     
-    func logout () {
-        self.presentingViewController!.dismiss(animated: true, completion: nil);
-//        // Create a new "Main Storyboard" instance.
-//        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-//        
-//        // Create an instance of the storyboard's initial view controller.
-//        let loginController = storyboard.instantiateViewController(withIdentifier: "Login") as UIViewController
-//        
-//        present(loginController, animated: true, completion: nil)
-    }
-  
+    
     var delegate: SidePanelViewControllerDelegate?
   
   
@@ -44,8 +37,10 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
         super.viewDidLoad()
         
         let logoutButton = LoginButton(readPermissions: [ .publicProfile ])
-        logoutButton.center.x = view.center.x*0.4
+        
+        logoutButton.center.x = logoutButton.frame.width/2
         logoutButton.center.y = view.center.y+275
+        
         logoutButton.delegate = self
         
         view.addSubview(logoutButton)
@@ -56,7 +51,12 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        logout()
         self.presentingViewController!.dismiss(animated: true, completion: nil);
+    }
+    
+    func logout() {
+        FBSDKLoginManager().logOut()
     }
   
 }
