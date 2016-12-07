@@ -8,10 +8,16 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 import FacebookCore
 import FacebookLogin
 
 class LoginViewController: UIViewController, LoginButtonDelegate {
+    
+    
+    var users:[(Int, String)] = [(Int, String)]()
+    var facebookEmail:String = String()
+    var userId: Int = Int()
     
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
@@ -100,28 +106,89 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 break
             case .success(let graphResponse):
                 if let responseDictionary = graphResponse.dictionaryValue {
+                    guard let id = responseDictionary["id"] else {
+                        print("ID error")
+                        break
+                    }
+                    print("FacebookID:\(id)")
                     guard let email = responseDictionary["email"] else {
                         print("Email error")
                         break
                     }
-                    self.checkIfUserExists(email: email as! String)
+                    self.facebookEmail = email as! String
+                    self.getUsers()
                 }
             }
         }
 
     }
     
-    func checkIfUserExists(email: String) {
-        //            let parameters:Parameters = ["user": [
-        //                "id": 3,
-        //                "email": "grafmark59@gmail.com"
-        //                ]]
-        //            let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
-        //            Alamofire.request("https://morning-castle-56124.herokuapp.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
-        //                var statusCode = response.response?.statusCode
-        //                print(statusCode) //201 vs 500
+    func checkIfUserExists() {
+        print("OUT")
+        print(self.users)
+        let emails = self.users.map{$0.1}
+        if let index = emails.index(of: self.facebookEmail) {
+            print(self.users[index])
+            print("contains")
+        } else {
+            print("create")
+            createUser()
+        }
         
     }
+    
+    func getUsers() {
+        Alamofire.request("https://morning-castle-56124.herokuapp.com/users").responseJSON {
+            response in
+            self.parseUsers(JSONData: response.data!)
+        }
+        
+    }
+    
+    func parseUsers(JSONData: Data) {
+        do {
+            let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! NSArray
+            for i in 0..<readableJSON.count {
+                var user = JSON(readableJSON[i])
+                let id = user["id"].int
+                let email = user["email"].string
+                print("This is an email \(email)\n")
+                if email != nil {
+                    self.users.append((id!, email!))
+                }
+            }
+        }
+        catch {
+            print(error)
+        }
+        checkIfUserExists()
+    }
+    
+    func createUser() {
+        let id = nextAvailableId()
+        let parameters:Parameters = ["user": [
+            "id": id,
+            "email": "email\(id)@test.com"  //self.facebookEmail //Should be this facebook email, not test
+            ]]
+        let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
+        Alamofire.request("https://morning-castle-56124.herokuapp.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+            let statusCode = response.response?.statusCode
+            print(statusCode) //201 vs 500
+        })
+    }
+    
+    func nextAvailableId() -> Int {
+        let ids = self.users.map{$0.0}
+        print(ids)
+        var i = 2
+        while true {
+            if !ids.contains(i) {
+                return i
+            }
+            i = i + 1
+        }
+    }
+
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
