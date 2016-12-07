@@ -17,6 +17,8 @@ enum SlideOutState {
 
 class ContainerViewController: UIViewController {
   
+    let serverAgent = ServerAgent.sharedInstance
+    
     var centerNavigationController: UINavigationController!
     var centerViewController: CenterViewController!
     

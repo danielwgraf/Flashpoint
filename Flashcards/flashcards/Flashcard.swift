@@ -10,11 +10,15 @@ import Foundation
 
 struct Flashcard {
     
-    let command: String
+    let id: Int
+    let deck_id: Int
+    let word: String
     let definition: String
     
-    init(command: String, definition: String) {
-        self.command = command
+    init(id: Int, deck_id: Int, word: String, definition: String) {
+        self.id = id
+        self.deck_id = deck_id
+        self.word = word
         self.definition = definition
     }
 }

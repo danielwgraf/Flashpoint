@@ -34,6 +34,7 @@
 		D755496A1DF099D900665FB0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75549671DF099D900665FB0 /* ContainerViewController.swift */; };
 		D755496B1DF099D900665FB0 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75549681DF099D900665FB0 /* SidePanelViewController.swift */; };
 		D755496F1DF1F55200665FB0 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D755496E1DF1F55200665FB0 /* TestStoryboard.storyboard */; };
+		D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		D75549671DF099D900665FB0 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		D75549681DF099D900665FB0 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		D755496E1DF1F55200665FB0 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAgent.swift; sourceTree = "<group>"; };
 		E751B7996D3461F3222C2C2E /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashcardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -209,6 +211,7 @@
 				D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */,
 				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
 				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
+				D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */,
 				D75549681DF099D900665FB0 /* SidePanelViewController.swift */,
 				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
 			);
@@ -551,6 +554,7 @@
 			files = (
 				D75549691DF099D900665FB0 /* CenterViewController.swift in Sources */,
 				D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */,
+				D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */,
 				D755496A1DF099D900665FB0 /* ContainerViewController.swift in Sources */,
 				D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */,
 				D75549561DEF80A200665FB0 /* Deck.swift in Sources */,

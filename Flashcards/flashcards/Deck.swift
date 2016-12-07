@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Deck {
+struct Deck {
     
     let name = "Name"
     let cards: [Flashcard]
@@ -48,7 +48,7 @@ class Deck {
             "rake test:benchmark" : "Benchmarks your application"
         ]
         
-        cards = cardData.map { Flashcard(command: $0, definition: $1) }
+        cards = cardData.map { Flashcard(id: 0, deck_id: 0, word: $0, definition: $1) }
 
 }
 }
