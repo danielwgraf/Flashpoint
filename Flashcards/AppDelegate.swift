@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options  [UIApplicationOpenURLOptionsKey.annotation])
+        
+        return handled 
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -48,40 +56,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        print("\n\n\n1\n\n\n")
-        
-        print(self.window?.rootViewController?.presentedViewController)
         if self.window?.rootViewController?.presentedViewController is ContainerViewController {
-            print("\n\n\n1a\n\n\n")
-            
             let containView = self.window!.rootViewController!.presentedViewController as! ContainerViewController
             
             let navController = containView.centerNavigationController
             if navController != nil {
-                print("\n\n\n1aa\n\n\n")
-                print(navController?.visibleViewController)
                 if navController?.visibleViewController is ViewController {
-                    print("\n\n\n1aaa\n\n\n")
                     let cardController = navController?.visibleViewController as! ViewController
             
                     if cardController.isPresented {
-                        print("\n\n\n1aaaa\n\n\n")
                         return UIInterfaceOrientationMask.landscape;
                     } else {
-                        print("\n\n\n1aaab\n\n\n")
                         return UIInterfaceOrientationMask.portrait;
                     }
                 } else {
-                    print("\n\n\n1aab\n\n\n")
                     return UIInterfaceOrientationMask.portrait;
                 }
             } else {
-                print("\n\n\n1ab\n\n\n")
                 return UIInterfaceOrientationMask.portrait;
             }
 
         } else {
-            print("\n\n\n1b\n\n\n")
             return UIInterfaceOrientationMask.portrait;
         }
         

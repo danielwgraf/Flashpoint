@@ -5,13 +5,13 @@ target ‘Flashcards’ do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod ’SwiftyJSON’
-  pod ‘AlamofireSwiftyJSON’
+  pod 'SwiftyJSON'
+  pod 'AlamofireSwiftyJSON'
   
   # Facebook Pods
-  pod ‘FacebookCore‘
-  pod ‘FacebookLogin‘
-  pod ‘FacebookShare‘
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
   # Pods for Flashcards
 
