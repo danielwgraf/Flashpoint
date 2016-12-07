@@ -35,6 +35,8 @@
 		D755496B1DF099D900665FB0 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75549681DF099D900665FB0 /* SidePanelViewController.swift */; };
 		D755496F1DF1F55200665FB0 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D755496E1DF1F55200665FB0 /* TestStoryboard.storyboard */; };
 		D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */; };
+		D7C98CA61DF88AAE000E42C5 /* GameRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */; };
+		D7C98CA81DF88B6A000E42C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA71DF88B6A000E42C5 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		D75549681DF099D900665FB0 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		D755496E1DF1F55200665FB0 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
 		D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAgent.swift; sourceTree = "<group>"; };
+		D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoom.swift; sourceTree = "<group>"; };
+		D7C98CA71DF88B6A000E42C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E751B7996D3461F3222C2C2E /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashcardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,6 +227,8 @@
 				D75549511DEF80A200665FB0 /* Deck.swift */,
 				D75549531DEF80A200665FB0 /* Flashcard.swift */,
 				D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */,
+				D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */,
+				D7C98CA71DF88B6A000E42C5 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				D755496A1DF099D900665FB0 /* ContainerViewController.swift in Sources */,
 				D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */,
 				D75549561DEF80A200665FB0 /* Deck.swift in Sources */,
+				D7C98CA61DF88AAE000E42C5 /* GameRoom.swift in Sources */,
 				D7415FD81DDDEC3900CBB76C /* DeckListViewController.swift in Sources */,
 				D7415FE21DDDF5E100CBB76C /* TableViewCell.swift in Sources */,
 				D72B14501DC28D8F005429F1 /* ViewController.swift in Sources */,
@@ -565,6 +572,7 @@
 				D75549571DEF80A200665FB0 /* DefinitionViewController.swift in Sources */,
 				D755495A1DEF80A200665FB0 /* ViewController2.swift in Sources */,
 				D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */,
+				D7C98CA81DF88B6A000E42C5 /* User.swift in Sources */,
 				D755496B1DF099D900665FB0 /* SidePanelViewController.swift in Sources */,
 				D72B144E1DC28D8F005429F1 /* AppDelegate.swift in Sources */,
 				D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */,
