@@ -7,13 +7,14 @@
 //
 
 import UIKit
-
+import FacebookCore
+import FacebookLogin
 
 protocol SidePanelViewControllerDelegate {
   //func animalSelected(_ animal: Animal)
 }
 
-class SidePanelViewController: UIViewController {
+class SidePanelViewController: UIViewController, LoginButtonDelegate {
     
     @IBAction func checkLogOut(_ sender: AnyObject) {
         let logoutAlertController = UIAlertController(title: "Log Out", message: "Are you sure that you want to log out?", preferredStyle: UIAlertControllerStyle.alert)
@@ -41,6 +42,21 @@ class SidePanelViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoutButton = LoginButton(readPermissions: [ .publicProfile ])
+        logoutButton.center.x = view.center.x*0.4
+        logoutButton.center.y = view.center.y+275
+        logoutButton.delegate = self
+        
+        view.addSubview(logoutButton)
+    }
+    
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        self.presentingViewController!.dismiss(animated: true, completion: nil);
     }
   
 }
