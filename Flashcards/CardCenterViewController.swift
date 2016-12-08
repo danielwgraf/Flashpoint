@@ -18,8 +18,9 @@ protocol CardCenterViewControllerDelegate {
 }
 
 protocol SpecificDeckDelegate {
-    func deliverDeck(deck: Deck)
+    func setMainDeck()
 }
+
 
 class CardCenterViewController: UIViewController {
 
@@ -35,16 +36,20 @@ class CardCenterViewController: UIViewController {
     }
   
     var delegate: CardCenterViewControllerDelegate?
-    var deckDelegate: SpecificDeckDelegate?
+    var deckDelegate: SpecificDeckDelegate? = nil
     
     
     //User.decks.names
     var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
     var cardImages: [String] = ["back-1.png"]
     
+    
   
     // MARK: Button actions
   
+    @IBAction func test (_ sender: AnyObject) {
+        deckDelegate!.setMainDeck()
+    }
   
     @IBAction func studyBarTapped(_ sender: AnyObject) {
         delegate?.toggleRightPanel?()

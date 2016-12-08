@@ -17,11 +17,16 @@ protocol CenterViewControllerDelegate {
   @objc optional func collapseSidePanels()
 }
 
-class CenterViewController: UIViewController {
+
+
+class CenterViewController: UIViewController, SpecificDeckDelegate {
+    
+
     
     var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
     var cardImages: [String] = ["back-1.png"]
     var newDeck: Deck?
+    var mainDeck: Deck?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -44,20 +49,34 @@ class CenterViewController: UIViewController {
         //may need to update tableview
     }
     
-  var delegate: CenterViewControllerDelegate?
+    var delegate: CenterViewControllerDelegate?
+    
     
     //User.decks.names
     
   
-  // MARK: Button actions
+    // MARK: Button actions
   
-  @IBAction func menuTapped(_ sender: AnyObject) {
-    delegate?.toggleLeftPanel?()
-  }
+    @IBAction func menuTapped(_ sender: AnyObject) {
+        delegate?.toggleLeftPanel?()
+    }
   
-  @IBAction func refreshTapped(_ sender: AnyObject) {
-    self.collectionView.reloadData()
-  }
+    @IBAction func refreshTapped(_ sender: AnyObject) {
+        self.collectionView.reloadData()
+    }
+    
+    func setMainDeck() {
+        print("MAIN")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DeckToCard" {
+            let CardCenterVC:CardCenterViewController = segue.destination as! CardCenterViewController
+            
+            CardCenterVC.deckDelegate = self
+            print("I SEGUED!!")
+        }
+    }
 
 }
 
