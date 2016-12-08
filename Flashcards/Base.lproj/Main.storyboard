@@ -109,8 +109,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xPk-bD-dnz">
-                                <frame key="frameInset" minY="115" width="375" height="552"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minY="115"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hVu-oa-JCw">
                                     <size key="itemSize" width="111" height="170"/>
@@ -157,17 +157,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uU-pe-pFY">
-                                <frame key="frameInset" minX="239" minY="68" width="95" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test Delegate"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2V-M4-Pt8">
+                                <frame key="frameInset" width="91" height="75" maxX="16" maxY="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" image="add"/>
+                                <state key="selected" image="add_highlighted"/>
+                                <state key="highlighted" image="add_highlighted"/>
                                 <connections>
-                                    <action selector="test:" destination="eWV-5F-COT" eventType="touchUpInside" id="MCC-xm-jFB"/>
+                                    <segue destination="jWQ-Sz-Ub2" kind="presentation" id="B86-f4-5G1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDC-zo-4rW">
-                                <frame key="frameInset" minX="84" minY="73" width="191" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="0.0%" minY="64" width="100.00%" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -182,9 +184,9 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="5Kh-Oz-Qoq"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" id="Me7-gp-amf">
+                            <barButtonItem systemItem="refresh" id="Cs7-T0-5MD">
                                 <connections>
-                                    <segue destination="jWQ-Sz-Ub2" kind="presentation" id="tsl-Qb-7Ie"/>
+                                    <action selector="refreshTapped:" destination="JzR-84-ykI" id="Ebg-lq-369"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

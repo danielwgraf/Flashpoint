@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 
+
 class CardDetailsViewController: UITableViewController {
     
     var card:Flashcard?
+    var deck_id: Int?
     
     @IBOutlet weak var cardWordTextField: UITextField!
     @IBOutlet weak var cardDefinitionTextField: UITextField!
@@ -27,7 +29,7 @@ class CardDetailsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveCardDetail" {
-            uploadCard(id: 500, word: cardWordTextField.text!, definition: cardDefinitionTextField.text!, deck_id: 5)
+            uploadCard(id: 500, word: cardWordTextField.text!, definition: cardDefinitionTextField.text!, deck_id: deck_id!)
             ServerAgent.sharedInstance.refresh()
             User.refresh()
         }
@@ -35,7 +37,6 @@ class CardDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

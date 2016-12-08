@@ -22,6 +22,7 @@ protocol SpecificDeckDelegate {
 }
 
 
+
 class CardCenterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,6 +49,7 @@ class CardCenterViewController: UIViewController {
   
     var delegate: CardCenterViewControllerDelegate?
     var deckDelegate: SpecificDeckDelegate? = nil
+    
     
     var mainDeck: Deck?
     
@@ -79,6 +81,17 @@ class CardCenterViewController: UIViewController {
         delegate?.toggleRightPanel?()
     }
   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddCard" {
+            let navController = segue.destination as? UINavigationController
+            if navController != nil {
+                if navController?.visibleViewController is CardDetailsViewController {
+                    let AddCard = navController?.visibleViewController as! CardDetailsViewController
+                    AddCard.deck_id = mainDeck?.id
+                }
+            }
+        }
+    }
     
 }
 
