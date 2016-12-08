@@ -33,8 +33,8 @@ class ContainerViewController: UIViewController {
     
     
     // MARK: Side Panel Slideout Distance
-    let centerPanelExpandedOffset: CGFloat = UIScreen.main.bounds.width*0.6
-    
+    let centerPanelExpandedOffsetLeft: CGFloat = UIScreen.main.bounds.width*0.6
+    let centerPanelExpandedOffsetRight: CGFloat = UIScreen.main.bounds.width-150
 //    func refresh(completion: () -> Void) {
 //        serverAgent = ServerAgent.sharedInstance
 //    }
@@ -125,7 +125,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         if (shouldExpand) {
             currentState = .leftPanelExpanded
             
-            animateCenterPanelXPosition((centerNavigationController.view.frame).width - centerPanelExpandedOffset)
+            animateCenterPanelXPosition((centerNavigationController.view.frame).width - centerPanelExpandedOffsetLeft)
         } else {
             animateCenterPanelXPosition(0) { finished in
                 self.currentState = .bothCollapsed
@@ -140,7 +140,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         if (shouldExpand) {
             currentState = .rightPanelExpanded
             
-            animateCenterPanelXPosition(-(centerNavigationController.view.frame).width + centerPanelExpandedOffset)
+            animateCenterPanelXPosition(-(centerNavigationController.view.frame).width + centerPanelExpandedOffsetRight)
         } else {
             animateCenterPanelXPosition(0) { _ in
                 self.currentState = .bothCollapsed

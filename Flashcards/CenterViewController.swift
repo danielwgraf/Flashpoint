@@ -83,9 +83,6 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
             let CardCenterVC = segue.destination as? CardCenterViewController
             
             CardCenterVC?.deckDelegate = self
-            print("MAIN DECK IN SEGUE: ",mainDeck?.deck_name)
-            
-            print(CardCenterVC?.deckViewLabel)
             //CardCenterVC.deckNameLabel.text = "Deck"
         }
     }
@@ -93,8 +90,15 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
 }
 
 extension CenterViewController: SidePanelViewControllerDelegate {
-    func deckSelected(_ deck: Deck) {
-        mainDeck = deck
+    @IBAction func DeckToCard(segue:UIStoryboardSegue) {
+    }
+    
+    func segueToCards() {
+        performSegue(withIdentifier: "DeckToCard", sender: nil)
+    }
+    
+    func closePanels() {
+        delegate?.collapseSidePanels!()
     }
 }
 
@@ -119,6 +123,5 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     func setMainDeck(deckName: String) {
         let newMainDeck = User.getDeckByName(deck_name: deckName)
         self.mainDeck = newMainDeck
-        print("main deck set (in thing): \(newMainDeck) \(mainDeck) \(self.mainDeck)")
     }
 }

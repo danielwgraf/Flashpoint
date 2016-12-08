@@ -212,8 +212,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-Ke-2H2">
-                                <frame key="frameInset" minY="20" width="150" height="283"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minY="20" width="40.00%" height="43.74%"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ID-1009881.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TaF-Iz-oNF">
                                         <frame key="frameInset" minX="24" minY="53" width="102" height="176"/>
@@ -223,19 +223,19 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hF-Bb-1N1">
-                                <frame key="frameInset" minX="150" minY="20" width="225" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="100.00%" minY="20" width="225"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9l-vS-Xsn">
-                                <frame key="frameInset" minX="30" minY="352" width="91" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="8.00%" minY="52.77%" width="24.27%" height="7.95%"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Decks"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-6k-Tgz">
-                                <frame key="frameInset" minX="30" minY="413" width="91" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="8.00%" minY="61.92%" width="24.27%" height="7.95%"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Friends"/>
                             </button>
@@ -265,15 +265,18 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6L-Mb-Fo4">
-                                <frame key="frameInset" minX="257" minY="28" width="91" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minY="28" width="91" height="75" maxX="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eye"/>
                                 <state key="selected" image="eye_highlighted"/>
                                 <state key="highlighted" image="eye_highlighted"/>
+                                <connections>
+                                    <action selector="viewCards:" destination="LW1-Xt-1km" eventType="touchUpInside" id="VKz-qd-icG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm2-Q5-NFt">
-                                <frame key="frameInset" minX="257" minY="144" width="91" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minY="144" width="91" height="75" maxX="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="trash_can"/>
                                 <state key="selected" image="trash_can_highlighted"/>
                                 <state key="highlighted" image="trash_can_highlighted"/>
@@ -328,7 +331,7 @@
                                 <segue destination="QX8-HQ-128" kind="unwind" unwindAction="cancelToCenterViewControllerWithSegue:" id="8ib-gd-HUB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="EPT-Ug-reJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EPT-Ug-reJ">
                             <connections>
                                 <segue destination="QX8-HQ-128" kind="unwind" identifier="SaveDeckDetail" unwindAction="saveDeckDetailWithSegue:" id="zZX-zu-aLW"/>
                             </connections>
@@ -355,7 +358,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-BH-NXr">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-BH-NXr">
                                 <frame key="frameInset" minX="164" minY="72" width="46" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -364,8 +367,8 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-UN-e7w">
-                                <frame key="frameInset" minY="115" width="375" height="552"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minY="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mpt-3P-Jje">
                                     <size key="itemSize" width="168" height="257"/>
@@ -393,12 +396,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-35-inW">
-                                                    <frame key="frameInset" minX="17" minY="211" width="30" height="30"/>
+                                                    <frame key="frameInset" minX="18" minY="208" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Options" image="optionsButton2"/>
-                                                    <state key="selected" image="optionsButton2Highlighted"/>
-                                                    <state key="highlighted" image="optionsButton2Highlighted"/>
+                                                    <state key="normal" title="Options" image="optionsButton3"/>
+                                                    <state key="selected" image="optionsButton3Highlight"/>
+                                                    <state key="highlighted" image="optionsButton3Highlight"/>
                                                     <connections>
                                                         <action selector="deckCardButton:" destination="jhH-dH-wWI" eventType="touchUpInside" id="2XA-d1-LWf"/>
                                                     </connections>
@@ -414,8 +417,8 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdI-41-SZo">
-                                <frame key="frameInset" minX="268" minY="572" width="91" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" width="91" height="75" maxX="16" maxY="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="add"/>
                                 <state key="selected" image="add_highlighted"/>
                                 <state key="highlighted" image="add_highlighted"/>
@@ -445,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCg-7e-OIC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794.39999999999998" y="26.53673163418291"/>
+            <point key="canvasLocation" x="-799.20000000000005" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ljM-lh-hjf">
@@ -576,8 +579,8 @@
         <image name="closeHighlighted" width="242" height="242"/>
         <image name="eye" width="256" height="256"/>
         <image name="eye_highlighted" width="256" height="256"/>
-        <image name="optionsButton2" width="300" height="299"/>
-        <image name="optionsButton2Highlighted" width="300" height="299"/>
+        <image name="optionsButton3" width="300" height="299"/>
+        <image name="optionsButton3Highlight" width="300" height="299"/>
         <image name="rotate" width="223" height="222"/>
         <image name="rotateHighlighted" width="223" height="222"/>
         <image name="trash_can" width="256" height="256"/>

@@ -13,13 +13,19 @@ import FBSDKLoginKit
 
 
 protocol SidePanelViewControllerDelegate {
-  func deckSelected(_ deck: Deck)
+    func segueToCards()
+    func closePanels()
 }
 
 class SidePanelViewController: UIViewController, LoginButtonDelegate {
     
     var delegate: SidePanelViewControllerDelegate?
   
+    @IBAction func viewCards(_ sender: AnyObject) {
+        delegate?.closePanels()
+        delegate?.segueToCards()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

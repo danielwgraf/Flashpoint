@@ -20,7 +20,6 @@ class DeckCardCell: UICollectionViewCell {
     @IBAction func deckCardButton(_ sender: Any) {
         delegate?.toggleRightPanel?()
         delegate?.setMainDeck!(deckName: deckCardLabel.text!)
-        print("main deck set:")
     }
     
     @IBOutlet weak var deckCardLabel: UILabel!
