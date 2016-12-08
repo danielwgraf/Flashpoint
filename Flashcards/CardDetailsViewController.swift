@@ -14,17 +14,20 @@ class CardDetailsViewController: UITableViewController {
     var card:Flashcard?
     
     @IBOutlet weak var cardWordTextField: UITextField!
+    @IBOutlet weak var cardDefinitionTextField: UITextField!
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             cardWordTextField.becomeFirstResponder()
+        } else if indexPath.section == 1 {
+            cardDefinitionTextField.becomeFirstResponder()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SaveDeckDetail" {
-            uploadCard(id: 500, deck_name: cardWordTextField.text!, creator_id: 3)
+        if segue.identifier == "SaveCardDetail" {
+            uploadCard(id: 500, word: cardWordTextField.text!, definition: cardDefinitionTextField.text!, deck_id: 5)
             ServerAgent.sharedInstance.refresh()
             User.refresh()
         }
@@ -45,14 +48,15 @@ class CardDetailsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func uploadCard(id: Int, deck_name: String, creator_id: Int) {
-        let parameters:Parameters = ["deck": [
+    func uploadCard(id: Int, word: String, definition: String, deck_id: Int) {
+        let parameters:Parameters = ["card": [
             "id": id,
-            "deck_name": deck_name,
-            "user_id": creator_id
+            "word": word,
+            "definition": definition,
+            "deck_id": deck_id
             ]]
         let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
-        Alamofire.request("https://morning-castle-56124.herokuapp.com/decks", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+        Alamofire.request("https://morning-castle-56124.herokuapp.com/cards", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
             let statusCode = response.response?.statusCode
             print("Card Creation Status: ",statusCode) //201 vs 500
         })

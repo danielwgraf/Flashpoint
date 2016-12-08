@@ -44,6 +44,17 @@ class CardCenterViewController: UIViewController {
     var cardImages: [String] = ["back-1.png"]
     
     
+    @IBAction func cancelToCardCenterViewController(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func saveCardDetail(segue:UIStoryboardSegue) {
+        //add the new player to the players array
+        User.refresh()
+        //deckCardLabels = User.getDeckNames()
+        collectionView.reloadData()
+        //may need to update tableview
+    }
+    
   
     // MARK: Button actions
   

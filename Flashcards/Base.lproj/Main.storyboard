@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="898" y="1080"/>
         </scene>
-        <!--Center View Controller-->
+        <!--Card Center View Controller-->
         <scene sceneID="tKs-Yb-T4l">
             <objects>
-                <viewController storyboardIdentifier="CenterViewController2" title="Center View Controller" id="eWV-5F-COT" customClass="CardCenterViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CenterViewController2" title="Card Center View Controller" id="eWV-5F-COT" customClass="CardCenterViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eYP-jM-xfm"/>
                         <viewControllerLayoutGuide type="bottom" id="2dQ-PG-Wvp"/>
@@ -176,11 +176,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="FlashPoint" id="nOo-cc-6ON">
-                        <barButtonItem key="rightBarButtonItem" title="Study" id="UPX-qg-ath">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="5Kh-Oz-Qoq"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Study" id="UPX-qg-ath">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="5Kh-Oz-Qoq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="Me7-gp-amf">
+                                <connections>
+                                    <segue destination="jWQ-Sz-Ub2" kind="presentation" id="tsl-Qb-7Ie"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -439,6 +446,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7I-J9-cAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-797.60000000000002" y="-632.83358320839591"/>
+        </scene>
+        <!--Add Flashcard-->
+        <scene sceneID="K7p-Ht-0IZ">
+            <objects>
+                <tableViewController id="pG4-Kt-bZ8" customClass="CardDetailsViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bpr-pH-4jG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Word" id="uj8-D6-ueK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XPO-O3-UJ8">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XPO-O3-UJ8" id="exV-Lq-a9X">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8y-zr-J4i">
+                                                    <frame key="frameInset" width="375" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Definition" id="9rx-lN-OkU">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jHx-hZ-rAC">
+                                        <rect key="frame" x="0.0" y="221" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jHx-hZ-rAC" id="6h7-t3-FWm">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfD-pr-73J">
+                                                    <frame key="frameInset" width="375" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="pG4-Kt-bZ8" id="ShK-cZ-D52"/>
+                            <outlet property="delegate" destination="pG4-Kt-bZ8" id="YOE-8c-x66"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Flashcard" id="MAB-QG-fw6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Oyy-4o-KyM">
+                            <connections>
+                                <segue destination="NZz-uZ-xp5" kind="unwind" unwindAction="cancelToCardCenterViewControllerWithSegue:" id="51J-lv-dRa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oCK-Is-e5e">
+                            <connections>
+                                <segue destination="NZz-uZ-xp5" kind="unwind" identifier="SaveCardDetail" unwindAction="saveDeckDetailWithSegue:" id="613-nL-ngq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardDefinitionTextField" destination="kfD-pr-73J" id="cxv-h2-VCa"/>
+                        <outlet property="cardWordTextField" destination="O8y-zr-J4i" id="3MB-eM-B4I"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGf-Ka-stR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NZz-uZ-xp5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1617" y="834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hpt-Ou-i9x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jWQ-Sz-Ub2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rU8-TN-hlE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pG4-Kt-bZ8" kind="relationship" relationship="rootViewController" id="H5v-aT-AGf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUG-RV-KEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2556" y="834"/>
         </scene>
     </scenes>
     <resources>

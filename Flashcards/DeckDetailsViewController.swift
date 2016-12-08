@@ -54,7 +54,7 @@ class DeckDetailsViewController: UITableViewController {
         let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
         Alamofire.request("https://morning-castle-56124.herokuapp.com/decks", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
             let statusCode = response.response?.statusCode
-            print("Card Creation Status: ",statusCode) //201 vs 500
+            print("Deck Creation Status: ",statusCode) //201 vs 500
         })
             
         //currentUserSetup(id: id, facebook_id: facebook_id)

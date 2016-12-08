@@ -100,7 +100,6 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: DeckCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeckCardCellIdentifier", for: indexPath) as! DeckCardCell
-        print("INDEX: ",User.getDeckNames(), deckCardLabels)
         cell.deckCardLabel.text = User.getDeckNames()[indexPath.row]
         cell.deckCardImage.image = UIImage(named: cardImages[0])
         cell.delegate = self
