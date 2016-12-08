@@ -181,9 +181,6 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     if (gestureIsDraggingFromLeftToRight) {
                         addLeftPanelViewController()
                     }
-//                  else {
-//                      addRightPanelViewController()
-//                  }
                 
                     showShadowForCenterViewController(true)
                 }
@@ -196,15 +193,13 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                     let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
                     animateLeftPanel(hasMovedGreaterThanHalfway)
                 }
-//              else if (rightViewController != nil) {
-//                  let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
-//                  animateRightPanel(hasMovedGreaterThanHalfway)
-//              }
+              else if (rightViewController != nil) {
+                  let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
+                  animateRightPanel(hasMovedGreaterThanHalfway)
+              }
             default:
                 break
             }
-        } else {
-            collapseSidePanels()
         }
 
     }

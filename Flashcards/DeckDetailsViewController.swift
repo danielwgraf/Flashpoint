@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DeckDetailsViewController: UITableViewController {
     
@@ -25,6 +26,7 @@ class DeckDetailsViewController: UITableViewController {
         if segue.identifier == "SaveDeckDetail" {
             let destViewController = segue.destination as? CenterViewController
             let newDeck = Deck(id:500, deck_name: deckNameTextField.text!, creator_id:1)
+            uploadDeck(id: 501, deck_name: deckNameTextField.text!, creator_id: 3)
             destViewController?.newDeck = newDeck
         }
     }
@@ -43,5 +45,21 @@ class DeckDetailsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func uploadDeck(id: Int, deck_name: String, creator_id: Int) {
+        let parameters:Parameters = ["deck": [
+            "id": id,
+            "deck_name": deck_name,
+            "user_id": creator_id
+            ]]
+        let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
+        Alamofire.request("https://morning-castle-56124.herokuapp.com/decks", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+            let statusCode = response.response?.statusCode
+            print("Card Creation Status: ",statusCode) //201 vs 500
+        })
+            
+        //currentUserSetup(id: id, facebook_id: facebook_id)
+    }
 }
+
+
