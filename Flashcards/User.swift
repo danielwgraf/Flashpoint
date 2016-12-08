@@ -16,7 +16,6 @@ class User {
     static var decks: [Int] = []// Will store deck ids
     static var friends: [Int] = []// Will store user ids
     
-    //static let sharedInstance = User()
     
     class func reset() {
         id = -1
@@ -65,5 +64,21 @@ class User {
             }
         }
         return deckNames
+    }
+    
+    class func getDeckById(id: Int) -> Deck? {
+        User.refresh()
+        var allDecks = ServerAgent.sharedInstance.decks
+        let allIDs = allDeckIDs()
+        let i = allIDs.index(of: id)
+        allDecks[i!].refresh()
+        return allDecks[i!]
+    }
+    
+    class func getDeckByName(deck_name: String) -> Deck? {
+        User.refresh()
+        let allNames = getDeckNames()
+        let i = allNames.index(of: deck_name)
+        return getDeckById(id: User.decks[i!])
     }
 }

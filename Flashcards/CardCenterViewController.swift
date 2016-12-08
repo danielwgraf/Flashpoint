@@ -18,7 +18,7 @@ protocol CardCenterViewControllerDelegate {
 }
 
 protocol SpecificDeckDelegate {
-    func setMainDeck()
+    func setAsMainDeck()->Deck
 }
 
 
@@ -32,14 +32,14 @@ class CardCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        
+        mainDeck = (deckDelegate?.setAsMainDeck())!
+        mainDeck?.refresh()
     }
   
     var delegate: CardCenterViewControllerDelegate?
     var deckDelegate: SpecificDeckDelegate? = nil
     
     var mainDeck: Deck?
-    
     
     //User.decks.names
     var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
@@ -52,6 +52,7 @@ class CardCenterViewController: UIViewController {
     @IBAction func saveCardDetail(segue:UIStoryboardSegue) {
         //add the new player to the players array
         User.refresh()
+        mainDeck?.refresh()
         //deckCardLabels = User.getDeckNames()
         collectionView.reloadData()
         //may need to update tableview
@@ -61,7 +62,7 @@ class CardCenterViewController: UIViewController {
     // MARK: Button actions
   
     @IBAction func test (_ sender: AnyObject) {
-        deckDelegate!.setMainDeck()
+        //deckDelegate!.setMainDeck()
     }
   
     @IBAction func studyBarTapped(_ sender: AnyObject) {
@@ -76,8 +77,7 @@ class CardCenterViewController: UIViewController {
 extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return self.deck.cards.count
-        return 6
+        return self.mainDeck!.cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

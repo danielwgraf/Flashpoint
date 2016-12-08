@@ -71,8 +71,8 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
         self.collectionView.reloadData()
     }
     
-    func setMainDeck() {
-        print("MAIN")
+    func setAsMainDeck() -> Deck {
+        return mainDeck!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,5 +108,11 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     
     func toggleRightPanel() {
         delegate?.toggleRightPanel?()
+    }
+    
+    func setMainDeck(deckName: String) {
+        let newMainDeck = User.getDeckByName(deck_name: deckName)
+        mainDeck = newMainDeck
+        print("main deck set (in thing): \(newMainDeck)")
     }
 }

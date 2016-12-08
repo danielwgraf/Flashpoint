@@ -145,7 +145,6 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 if facebook_id != nil {
                     self.users.append((id!, facebook_id!))
                 }
-                print("USERS:",self.users)
             }
         }
         catch {
@@ -170,7 +169,6 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     }
     
     func currentUserSetup(id: Int, facebook_id: Int) {
-        print("ID: \(id) FBID: \(facebook_id)")
         User.id = id
         User.facebook_id = facebook_id
         //User.friends = User.getUserFriends()
