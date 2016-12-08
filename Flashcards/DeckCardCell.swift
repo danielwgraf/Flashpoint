@@ -18,7 +18,7 @@ class DeckCardCell: UICollectionViewCell {
     @IBOutlet weak var deckCardImage: UIImageView!
     
     @IBAction func deckCardButton(_ sender: Any) {
-        //delegate?.toggleRightPanel?()
+        delegate?.toggleRightPanel?()
         delegate?.setMainDeck!(deckName: deckCardLabel.text!)
         print("main deck set:")
     }

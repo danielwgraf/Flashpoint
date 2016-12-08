@@ -24,7 +24,7 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
 
     
     var deckCardLabels: [String] = User.getDeckNames()
-    var cardImages: [String] = ["back-1.png"]
+    var cardImages: [String] = ["DeckBack4.png"]
     var newDeck: Deck?
     var mainDeck: Deck?
     
