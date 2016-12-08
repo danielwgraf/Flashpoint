@@ -58,4 +58,13 @@ struct Deck {
         self.cards = []
         self.shared_ids = []
     }
+    
+    mutating func getDeckCards() {
+        let allCards = ServerAgent.sharedInstance.cards
+        for card in allCards {
+            if card.deck_id == self.id {
+                self.cards.append(card)
+            }
+        }
+    }
 }

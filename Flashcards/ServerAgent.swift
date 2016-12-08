@@ -36,11 +36,15 @@ class ServerAgent {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! NSArray
             for i in 0..<readableJSON.count {
                 var card = JSON(readableJSON[i])
-                let id = card["id"]
-                let word = card["word"]
-                let definition = card["definition"]
-                let deck_id = card["deck_id"]
+                let id = card["id"].int
+                let word = card["word"].string
+                let definition = card["definition"].string
+                let deck_id = card["deck_id"].int
                 //print(id,word,definition,deck_id)
+                if (id != nil)&&(deck_id != nil)&&(word != nil)&&(definition != nil) {
+                    let cardObj = Flashcard(id: id!, deck_id: deck_id!, word: word!, definition: definition!)
+                    cards.append(cardObj)
+                }
                 //let cardObj = Flashcard(id: id,deck_id: deck_id,word: word,definition: definition)
 
             }
