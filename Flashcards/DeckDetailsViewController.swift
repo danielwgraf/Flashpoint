@@ -24,7 +24,7 @@ class DeckDetailsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveDeckDetail" {
-            uploadDeck(id: 501, deck_name: deckNameTextField.text!, creator_id: 3)
+            uploadDeck(id: 502, deck_name: deckNameTextField.text!, creator_id: User.id)
             ServerAgent.sharedInstance.refresh()
             User.refresh()
         }

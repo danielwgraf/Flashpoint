@@ -71,16 +71,22 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
         self.collectionView.reloadData()
     }
     
-    func setAsMainDeck() -> Deck {
-        return mainDeck!
+    func setAsMainDeck() -> Deck? {
+        if mainDeck != nil {
+            return mainDeck
+        }
+        return nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DeckToCard" {
-            let CardCenterVC:CardCenterViewController = segue.destination as! CardCenterViewController
+            let CardCenterVC = segue.destination as? CardCenterViewController
             
-            CardCenterVC.deckDelegate = self
-            //CardCenterVC.deckNameLabel.text = mainDeck?.deck_name
+            CardCenterVC?.deckDelegate = self
+            print("MAIN DECK IN SEGUE: ",mainDeck?.deck_name)
+            
+            print(CardCenterVC?.deckViewLabel)
+            //CardCenterVC.deckNameLabel.text = "Deck"
         }
     }
 
@@ -112,7 +118,7 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     
     func setMainDeck(deckName: String) {
         let newMainDeck = User.getDeckByName(deck_name: deckName)
-        mainDeck = newMainDeck
-        print("main deck set (in thing): \(newMainDeck)")
+        self.mainDeck = newMainDeck
+        print("main deck set (in thing): \(newMainDeck) \(mainDeck) \(self.mainDeck)")
     }
 }

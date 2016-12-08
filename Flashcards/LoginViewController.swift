@@ -157,7 +157,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         let id = nextAvailableId()
         let parameters:Parameters = ["user": [
             "id": id,
-            "facebook_id": self.facebook_id/10000000//"email\(id)@test.com" //Should be this facebook email, not test
+            "facebook_id": self.facebook_id//"email\(id)@test.com" //Should be this facebook email, not test
             ]]
         let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
         Alamofire.request("https://morning-castle-56124.herokuapp.com/users", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in

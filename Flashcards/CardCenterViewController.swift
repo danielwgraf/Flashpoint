@@ -18,14 +18,16 @@ protocol CardCenterViewControllerDelegate {
 }
 
 protocol SpecificDeckDelegate {
-    func setAsMainDeck()->Deck
+    func setAsMainDeck()->Deck?
 }
 
 
 class CardCenterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var deckNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var deckViewLabel: UILabel!
     
     
     
@@ -33,6 +35,13 @@ class CardCenterViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         mainDeck = (deckDelegate?.setAsMainDeck())!
+        deckViewLabel.text = mainDeck?.deck_name
+        mainDeck?.refresh()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mainDeck = (deckDelegate?.setAsMainDeck())!
+        deckViewLabel.text = mainDeck?.deck_name
         mainDeck?.refresh()
     }
   
@@ -62,7 +71,7 @@ class CardCenterViewController: UIViewController {
     // MARK: Button actions
   
     @IBAction func test (_ sender: AnyObject) {
-        //deckDelegate!.setMainDeck()
+        //deckDelegate!.setAsMainDeck()
     }
   
     @IBAction func studyBarTapped(_ sender: AnyObject) {
