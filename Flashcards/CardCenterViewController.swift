@@ -38,6 +38,8 @@ class CardCenterViewController: UIViewController {
     var delegate: CardCenterViewControllerDelegate?
     var deckDelegate: SpecificDeckDelegate? = nil
     
+    var mainDeck: Deck?
+    
     
     //User.decks.names
     var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
@@ -80,7 +82,7 @@ extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCellIdentifier", for: indexPath) as! CardCell
-        cell.cardLabel.text = cardLabels[indexPath.row]
+        cell.cardLabel.text = mainDeck?.getCardInfo()[indexPath.row].0
         cell.cardImage.image = UIImage(named: cardImages[0])
         cell.delegate = self
         return cell

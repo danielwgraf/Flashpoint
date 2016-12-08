@@ -512,7 +512,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="oCK-Is-e5e">
                             <connections>
-                                <segue destination="NZz-uZ-xp5" kind="unwind" identifier="SaveCardDetail" unwindAction="saveDeckDetailWithSegue:" id="613-nL-ngq"/>
+                                <segue destination="NZz-uZ-xp5" kind="unwind" identifier="SaveCardDetail" unwindAction="saveCardDetailWithSegue:" id="613-nL-ngq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -30,6 +30,31 @@ class DeckDetailsViewController: UITableViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "SaveDeckDetail" {
+            
+            if (deckNameTextField.text?.isEmpty)! {
+                let alertController = UIAlertController(title: "Error", message: "Name cannot be blank.", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                present(alertController, animated: true, completion: nil)
+                
+                
+                return false
+            } else if User.getDeckNames().contains(deckNameTextField.text!){
+                let alertController = UIAlertController(title: "Error", message: "There is already a deck with the name \(deckNameTextField.text!).", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                present(alertController, animated: true, completion: nil)
+
+                return false
+            }  else {
+                return true
+            }
+        }
+        
+        // by default, transition
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

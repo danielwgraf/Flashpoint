@@ -12,11 +12,11 @@ struct Deck {
     
     let id: Int
     var deck_name: String
-    var cards: [Flashcard]
+    var cards: [Int]
     let creator_id: Int
     var shared_ids: [Int]
     
-    func drawRandomCard() -> Flashcard? {
+    func drawRandomCard() -> Int? {
         if cards.isEmpty {  // shouldn't ever really be an issue; just being safe...
             return nil
         } else {
@@ -33,13 +33,43 @@ struct Deck {
         self.shared_ids = []
     }
     
+    mutating func refresh() {
+        getDeckCards()
+    }
+    
     mutating func getDeckCards() {
         let allCards = ServerAgent.sharedInstance.cards
         for card in allCards {
             if card.deck_id == self.id {
-                self.cards.append(card)
+                if !self.cards.contains(card.id) {
+                    self.cards.append(card.id)
+                }
             }
         }
+    }
+    
+    func allCardIDs() -> [Int] {
+        var allIDs: [Int] = []
+        let allCards = ServerAgent.sharedInstance.cards
+        for card in allCards {
+            allIDs.append(card.id)
+        }
+        return allIDs
+    }
+    
+     mutating func getCardInfo() -> [(String,String)] {
+        var cardInfo: [(String,String)] = []
+        User.refresh()
+        self.refresh()
+        let allCards = ServerAgent.sharedInstance.cards
+        let allIDs = allCardIDs()
+        for card in self.cards {
+            let i = allIDs.index(of: card)
+            if i != nil {
+                cardInfo.append((allCards[i!].word,allCards[i!].definition))
+            }
+        }
+        return cardInfo
     }
     
     
