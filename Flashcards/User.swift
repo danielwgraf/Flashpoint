@@ -27,16 +27,45 @@ class User {
     
     class func getUserDecks() {
         print("UserID: \(id) FBID: \(facebook_id)")
-        let serverAgent = ServerAgent.sharedInstance
-        let allDecks = serverAgent.decks
+        ServerAgent.sharedInstance.refresh()
+        let allDecks = ServerAgent.sharedInstance.decks
         for deck in allDecks {
             if deck.creator_id == User.id {
-                User.decks.append(deck.id)
+                if !decks.contains(deck.id) {
+                    User.decks.append(deck.id)
+                }
             }
         }
     }
     
+    class func refresh() {
+        User.getUserDecks()
+    }
+    
     func getUserFriends() {
         //var allUsers
+    }
+    class func allDeckIDs() -> [Int] {
+        var allIDs: [Int] = []
+        let allDecks = ServerAgent.sharedInstance.decks
+        for deck in allDecks {
+            allIDs.append(deck.id)
+        }
+        return allIDs
+    }
+    
+    class func getDeckNames() -> [String] {
+        var deckNames: [String] = []
+        User.getUserDecks()
+        let allDecks = ServerAgent.sharedInstance.decks
+        let allIDs = allDeckIDs()
+        for deck in User.decks {
+            let i = allIDs.index(of: deck)
+            if i != nil {
+                deckNames.append(allDecks[i!].deck_name)
+            }
+        }
+        print("Deck Names: ",deckNames)
+        return deckNames
     }
 }

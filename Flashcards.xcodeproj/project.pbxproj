@@ -41,6 +41,7 @@
 		D7E5A58D1DF92169005D06C1 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58C1DF92169005D06C1 /* CardCell.swift */; };
 		D7E5A58F1DF9234E005D06C1 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */; };
 		D7E5A5911DF98B4D005D06C1 /* DeckDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */; };
+		D7E5A5931DF9A6EB005D06C1 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		D7E5A58C1DF92169005D06C1 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailsViewController.swift; sourceTree = "<group>"; };
+		D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		E751B7996D3461F3222C2C2E /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashcardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -217,6 +219,7 @@
 		D7415FCC1DDD4FEB00CBB76C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */,
 				D7415FCD1DDD516100CBB76C /* CardViewController.swift */,
 				D75549661DF099D900665FB0 /* CardCenterViewController.swift */,
 				D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */,
@@ -573,6 +576,7 @@
 				D75549691DF099D900665FB0 /* CardCenterViewController.swift in Sources */,
 				D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */,
 				D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */,
+				D7E5A5931DF9A6EB005D06C1 /* CardDetailsViewController.swift in Sources */,
 				D755496A1DF099D900665FB0 /* ContainerViewController.swift in Sources */,
 				D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */,
 				D75549561DEF80A200665FB0 /* Deck.swift in Sources */,

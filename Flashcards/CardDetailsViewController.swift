@@ -9,22 +9,22 @@
 import UIKit
 import Alamofire
 
-class DeckDetailsViewController: UITableViewController {
+class CardDetailsViewController: UITableViewController {
     
-    var deck:Deck?
+    var card:Flashcard?
     
-    @IBOutlet weak var deckNameTextField: UITextField!
+    @IBOutlet weak var cardWordTextField: UITextField!
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
-            deckNameTextField.becomeFirstResponder()
+            cardWordTextField.becomeFirstResponder()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveDeckDetail" {
-            uploadDeck(id: 501, deck_name: deckNameTextField.text!, creator_id: 3)
+            uploadCard(id: 500, deck_name: cardWordTextField.text!, creator_id: 3)
             ServerAgent.sharedInstance.refresh()
             User.refresh()
         }
@@ -45,7 +45,7 @@ class DeckDetailsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func uploadDeck(id: Int, deck_name: String, creator_id: Int) {
+    func uploadCard(id: Int, deck_name: String, creator_id: Int) {
         let parameters:Parameters = ["deck": [
             "id": id,
             "deck_name": deck_name,

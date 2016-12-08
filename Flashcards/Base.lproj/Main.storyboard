@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,14 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-Dm-BhL">
-                                <frame key="frameInset" minX="0.098699999999999996" minY="0.053200000000000004" width="0.79730000000000001" height="0.55249999999999999"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-Dm-BhL">
                                 <connections>
                                     <segue destination="3w7-j6-xuR" kind="embed" id="t7v-Bq-Vyq"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeJ-wl-4Qa">
-                                <frame key="frameInset" minX="46.00%" width="7.20%" height="11.89%" maxY="36"/>
+                                <frame key="frameInset" minX="46.13%" width="7.20%" height="11.89%" maxY="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" image="rotate"/>
                                 <state key="selected" image="rotateHighlighted"/>
@@ -37,14 +35,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-1m-kO5">
-                                <frame key="frameInset" minX="33.47%" width="6.93%" height="9.65%" maxY="40"/>
+                                <frame key="frameInset" minX="33.60%" width="6.93%" height="9.71%" maxY="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" image="arrowLeft"/>
                                 <state key="selected" image="arrowLeftHighlight"/>
                                 <state key="highlighted" image="arrowLeftHighlight"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-No-V1S">
-                                <frame key="frameInset" minX="59.60%" width="6.80%" height="9.65%" maxY="40"/>
+                                <frame key="frameInset" minX="59.73%" width="6.93%" height="9.71%" maxY="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" image="arrowRight"/>
                                 <state key="selected" image="arrowRightHighlight"/>
@@ -63,9 +61,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.30980392159999998" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="IFe-cQ-dbs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jfC-Dm-BhL" secondAttribute="trailing" constant="49.5" id="UhU-xp-7qp"/>
-                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nw7-IB-IDR"/>
+                            <constraint firstAttribute="trailing" secondItem="jfC-Dm-BhL" secondAttribute="trailing" constant="374" id="EWY-hm-JS5"/>
+                            <constraint firstAttribute="bottom" secondItem="jfC-Dm-BhL" secondAttribute="bottom" constant="666" id="KhG-h6-2QQ"/>
+                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VRp-b9-Myv"/>
+                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lup-kc-dmD"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
@@ -186,6 +185,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="xPk-bD-dnz" id="cld-J6-9tp"/>
+                        <outlet property="deckNameLabel" destination="1FR-53-N1g" id="wg7-6g-nUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEZ-bq-T4j" sceneMemberID="firstResponder"/>

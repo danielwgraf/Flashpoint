@@ -25,7 +25,7 @@ protocol SpecificDeckDelegate {
 class CardCenterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var deckNameLabel: UILabel!
     
     
     
@@ -58,9 +58,7 @@ class CardCenterViewController: UIViewController {
     
 }
 
-extension CardCenterViewController: SidePanelViewControllerDelegate {
-    
-}
+
 
 extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate {
     

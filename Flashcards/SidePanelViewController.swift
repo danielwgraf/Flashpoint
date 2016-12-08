@@ -13,7 +13,7 @@ import FBSDKLoginKit
 
 
 protocol SidePanelViewControllerDelegate {
-  //func animalSelected(_ animal: Animal)
+  func deckSelected(_ deck: Deck)
 }
 
 class SidePanelViewController: UIViewController, LoginButtonDelegate {

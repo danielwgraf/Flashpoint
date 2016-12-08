@@ -20,6 +20,11 @@ class ServerAgent {
         self.getDecks()
     }
     
+    func refresh() {
+        self.getCards()
+        self.getDecks()
+    }
+    
     static let sharedInstance = ServerAgent()
 
     //MARK: Cards
@@ -45,8 +50,6 @@ class ServerAgent {
                     let cardObj = Flashcard(id: id!, deck_id: deck_id!, word: word!, definition: definition!)
                     cards.append(cardObj)
                 }
-                //let cardObj = Flashcard(id: id,deck_id: deck_id,word: word,definition: definition)
-
             }
         }
         catch {

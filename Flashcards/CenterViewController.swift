@@ -23,7 +23,7 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
     
 
     
-    var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
+    var deckCardLabels: [String] = User.getDeckNames()
     var cardImages: [String] = ["back-1.png"]
     var newDeck: Deck?
     var mainDeck: Deck?
@@ -37,6 +37,8 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        User.refresh()
+        deckCardLabels = User.getDeckNames()
         self.collectionView.reloadData()
     }
     
@@ -45,7 +47,9 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
     
     @IBAction func saveDeckDetail(segue:UIStoryboardSegue) {
         //add the new player to the players array
-        cardLabels.append((newDeck?.deck_name)!)
+        User.refresh()
+        deckCardLabels = User.getDeckNames()
+        collectionView.reloadData()
         //may need to update tableview
     }
     
@@ -62,6 +66,8 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
     }
   
     @IBAction func refreshTapped(_ sender: AnyObject) {
+        User.refresh()
+        deckCardLabels = User.getDeckNames()
         self.collectionView.reloadData()
     }
     
@@ -74,14 +80,16 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
             let CardCenterVC:CardCenterViewController = segue.destination as! CardCenterViewController
             
             CardCenterVC.deckDelegate = self
-            print("I SEGUED!!")
+            //CardCenterVC.deckNameLabel.text = mainDeck?.deck_name
         }
     }
 
 }
 
 extension CenterViewController: SidePanelViewControllerDelegate {
-    
+    func deckSelected(_ deck: Deck) {
+        mainDeck = deck
+    }
 }
 
 extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate {
@@ -92,7 +100,8 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: DeckCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeckCardCellIdentifier", for: indexPath) as! DeckCardCell
-        cell.deckCardLabel.text = cardLabels[indexPath.row]
+        print("INDEX: ",User.getDeckNames(), deckCardLabels)
+        cell.deckCardLabel.text = User.getDeckNames()[indexPath.row]
         cell.deckCardImage.image = UIImage(named: cardImages[0])
         cell.delegate = self
         return cell
