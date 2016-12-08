@@ -34,7 +34,6 @@ class User {
                 User.decks.append(deck.id)
             }
         }
-        print(User.decks)
     }
     
     func getUserFriends() {

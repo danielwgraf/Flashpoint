@@ -17,9 +17,16 @@ protocol CardCenterViewControllerDelegate {
   @objc optional func collapseSidePanels()
 }
 
+protocol SpecificDeckDelegate {
+    func deliverDeck(deck: Deck)
+}
+
 class CardCenterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +34,20 @@ class CardCenterViewController: UIViewController {
         
     }
   
-  var delegate: CardCenterViewControllerDelegate?
+    var delegate: CardCenterViewControllerDelegate?
+    var deckDelegate: SpecificDeckDelegate?
+    
     
     //User.decks.names
     var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
     var cardImages: [String] = ["back-1.png"]
     
   
-  // MARK: Button actions
+    // MARK: Button actions
   
-  @IBAction func menuTapped(_ sender: AnyObject) {
-    delegate?.toggleLeftPanel?()
-  }
   
-  @IBAction func studyBarTapped(_ sender: AnyObject) {
-    delegate?.toggleRightPanel?()
+    @IBAction func studyBarTapped(_ sender: AnyObject) {
+        delegate?.toggleRightPanel?()
     }
   
     
@@ -54,7 +60,7 @@ extension CardCenterViewController: SidePanelViewControllerDelegate {
 extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //User.decks.count
+        //return self.deck.cards.count
         return 6
     }
     

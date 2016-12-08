@@ -18,8 +18,13 @@ protocol CenterViewControllerDelegate {
 }
 
 class CenterViewController: UIViewController {
-
+    
+    var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
+    var cardImages: [String] = ["back-1.png"]
+    var newDeck: Deck?
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +34,19 @@ class CenterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.collectionView.reloadData()
     }
-  
+    
+    @IBAction func cancelToCenterViewController(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func saveDeckDetail(segue:UIStoryboardSegue) {
+        //add the new player to the players array
+        cardLabels.append((newDeck?.deck_name)!)
+        //may need to update tableview
+    }
+    
   var delegate: CenterViewControllerDelegate?
     
     //User.decks.names
-    var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
-    var cardImages: [String] = ["back-1.png"]
     
   
   // MARK: Button actions
@@ -46,9 +58,7 @@ class CenterViewController: UIViewController {
   @IBAction func refreshTapped(_ sender: AnyObject) {
     self.collectionView.reloadData()
   }
-  
 
-    
 }
 
 extension CenterViewController: SidePanelViewControllerDelegate {
