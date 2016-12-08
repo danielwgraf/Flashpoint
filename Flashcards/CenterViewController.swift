@@ -24,7 +24,10 @@ class CenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
   
   var delegate: CenterViewControllerDelegate?
@@ -40,10 +43,11 @@ class CenterViewController: UIViewController {
     delegate?.toggleLeftPanel?()
   }
   
-  @IBAction func studyBarTapped(_ sender: AnyObject) {
-    delegate?.toggleRightPanel?()
-    }
+  @IBAction func refreshTapped(_ sender: AnyObject) {
+    self.collectionView.reloadData()
+  }
   
+
     
 }
 
@@ -54,8 +58,7 @@ extension CenterViewController: SidePanelViewControllerDelegate {
 extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //User.decks.count
-        return 6
+        return User.decks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

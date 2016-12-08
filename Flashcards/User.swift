@@ -26,6 +26,7 @@ class User {
     }
     
     class func getUserDecks() {
+        print("UserID: \(id) FBID: \(facebook_id)")
         let serverAgent = ServerAgent.sharedInstance
         let allDecks = serverAgent.decks
         for deck in allDecks {
@@ -33,6 +34,7 @@ class User {
                 User.decks.append(deck.id)
             }
         }
+        print(User.decks)
     }
     
     func getUserFriends() {

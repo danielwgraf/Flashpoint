@@ -56,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
         if self.window?.rootViewController?.presentedViewController is ContainerViewController {
             let containView = self.window!.rootViewController!.presentedViewController as! ContainerViewController
             

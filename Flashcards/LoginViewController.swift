@@ -117,9 +117,9 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     
     func checkIfUserExists() {
         let facebook_ids = self.users.map{$0.1}
-        if facebook_ids.index(of: self.facebook_id) != nil {
+        if let index = facebook_ids.index(of: self.facebook_id){
             print("contains")
-            currentUserSetup(id: self.userId, facebook_id: self.facebook_id)
+            currentUserSetup(id: self.users[index].0, facebook_id: self.facebook_id)
         } else {
             print("create")
             createUser()
@@ -145,6 +145,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 if facebook_id != nil {
                     self.users.append((id!, facebook_id!))
                 }
+                print("USERS:",self.users)
             }
         }
         catch {
@@ -169,6 +170,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     }
     
     func currentUserSetup(id: Int, facebook_id: Int) {
+        print("ID: \(id) FBID: \(facebook_id)")
         User.id = id
         User.facebook_id = facebook_id
         //User.friends = User.getUserFriends()
