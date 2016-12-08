@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-Dm-BhL">
-                                <frame key="frameInset" minX="9.87%" minY="5.32%" width="79.73%" height="55.17%"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-Dm-BhL">
+                                <frame key="frameInset" minX="9.87%" minY="5.32%" width="79.73%" height="55.25%"/>
                                 <connections>
                                     <segue destination="3w7-j6-xuR" kind="embed" id="t7v-Bq-Vyq"/>
                                 </connections>
@@ -59,6 +59,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.30980392159999998" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="IFe-cQ-dbs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jfC-Dm-BhL" secondAttribute="trailing" constant="49.5" id="UhU-xp-7qp"/>
+                            <constraint firstItem="jfC-Dm-BhL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nw7-IB-IDR"/>
+                        </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
                     <connections>
@@ -67,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727.28635682158927" y="1080.8"/>
+            <point key="canvasLocation" x="175" y="1080"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="Z3c-hA-72A">
@@ -87,12 +92,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PlU-Bw-YJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-43" y="1081"/>
+            <point key="canvasLocation" x="898" y="1080"/>
         </scene>
         <!--Center View Controller-->
         <scene sceneID="tKs-Yb-T4l">
             <objects>
-                <viewController storyboardIdentifier="CenterViewController" title="Center View Controller" id="eWV-5F-COT" customClass="CenterViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEZ-bq-T4j" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="CenterViewController2" title="Center View Controller" id="eWV-5F-COT" customClass="CardCenterViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eYP-jM-xfm"/>
                         <viewControllerLayoutGuide type="bottom" id="2dQ-PG-Wvp"/>
@@ -104,10 +110,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofy-Fl-1QV">
                                 <frame key="frameInset" minX="164" minY="72" width="46" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="825-wS-y9m"/>
-                                </connections>
+                                <state key="normal" title="Back"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xPk-bD-dnz">
                                 <frame key="frameInset" minY="115" width="375" height="552"/>
@@ -120,7 +123,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DeckCardCellIdentifier" id="tTr-kI-bvn" customClass="DeckCardCell" customModule="Flashcards" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCellIdentifier" id="tTr-kI-bvn" customClass="CardCell" customModule="Flashcards" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="168" height="257"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -145,15 +148,15 @@
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Options"/>
                                                     <connections>
-                                                        <action selector="deckCardButton:" destination="tTr-kI-bvn" eventType="touchUpInside" id="WT3-ZT-34w"/>
+                                                        <action selector="cardButton:" destination="tTr-kI-bvn" eventType="touchUpInside" id="UFu-ui-Dn9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="deckCardImage" destination="fiw-zY-Fjp" id="bo2-6x-Eak"/>
-                                            <outlet property="deckCardLabel" destination="FNK-c4-tSp" id="r13-WB-KC2"/>
+                                            <outlet property="cardImage" destination="fiw-zY-Fjp" id="hpW-zp-6dI"/>
+                                            <outlet property="cardLabel" destination="FNK-c4-tSp" id="fuj-Hj-Lrw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -162,14 +165,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="FlashPoint" id="nOo-cc-6ON">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="jQS-JZ-gYC">
-                            <connections>
-                                <action selector="menuTapped:" destination="eWV-5F-COT" id="8j2-17-D34"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Study" id="UPX-qg-ath">
                             <connections>
                                 <action selector="studyBarTapped:" destination="eWV-5F-COT" id="uaI-AO-e4P"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="5Kh-Oz-Qoq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -178,9 +177,8 @@
                         <outlet property="collectionView" destination="xPk-bD-dnz" id="cld-J6-9tp"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEZ-bq-T4j" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727.20000000000005" y="26.53673163418291"/>
+            <point key="canvasLocation" x="-794" y="1080"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="SlG-DG-Tlt">
@@ -254,6 +252,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3W-oq-IkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2" y="27"/>
+        </scene>
+        <!--Center View Controller-->
+        <scene sceneID="3J6-vs-ghR">
+            <objects>
+                <viewController storyboardIdentifier="CenterViewController" title="Center View Controller" id="JzR-84-ykI" customClass="CenterViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IEJ-fJ-Ske"/>
+                        <viewControllerLayoutGuide type="bottom" id="KNC-Oc-iOV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GVc-BO-ujU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6g-BH-NXr">
+                                <frame key="frameInset" minX="164" minY="72" width="46" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="eWV-5F-COT" kind="showDetail" action="showViewController:sender:" id="H6n-0a-GOu"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-UN-e7w">
+                                <frame key="frameInset" minY="115" width="375" height="552"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mpt-3P-Jje">
+                                    <size key="itemSize" width="168" height="257"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DeckCardCellIdentifier" id="jhH-dH-wWI" customClass="DeckCardCell" customModule="Flashcards" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="257"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="168" height="257"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5y-UT-cHm">
+                                                    <frame key="frameInset" minX="8" minY="8" width="152" height="241"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xd0-vg-45R">
+                                                    <frame key="frameInset" minX="15" minY="118" width="145" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-35-inW">
+                                                    <frame key="frameInset" minX="8" minY="174" width="152" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Options"/>
+                                                    <connections>
+                                                        <action selector="deckCardButton:" destination="jhH-dH-wWI" eventType="touchUpInside" id="2XA-d1-LWf"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="deckCardImage" destination="R5y-UT-cHm" id="Sth-2o-ZX3"/>
+                                            <outlet property="deckCardLabel" destination="Xd0-vg-45R" id="PL6-7N-66P"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="FlashPoint" id="HlZ-8d-yGT">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ogb-N7-TzF">
+                            <connections>
+                                <action selector="menuTapped:" destination="JzR-84-ykI" id="5n1-W7-YwW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="YY1-UN-e7w" id="2uA-Bg-BRf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCg-7e-OIC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794" y="27"/>
         </scene>
     </scenes>
     <resources>
