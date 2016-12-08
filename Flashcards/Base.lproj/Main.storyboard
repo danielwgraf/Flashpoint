@@ -19,32 +19,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-Dm-BhL">
-                                <frame key="frameInset" minX="67" minY="20" height="207" maxX="68"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <frame key="frameInset" minX="10.00%" minY="5.32%" width="79.73%" height="55.17%"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="3w7-j6-xuR" kind="embed" id="t7v-Bq-Vyq"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeJ-wl-4Qa">
-                                <frame key="frameInset" minX="316" minY="303" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="FLIP!"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeJ-wl-4Qa">
+                                <frame key="frameInset" minX="46.27%" width="7.20%" height="11.81%" maxY="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <state key="normal" title="FLIP!" image="rotate"/>
+                                <state key="selected" image="rotateHighlighted"/>
+                                <state key="highlighted" image="rotateHighlighted"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="24f-K1-hVc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-1m-kO5">
-                                <frame key="frameInset" minX="223" minY="303" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LAST"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePK-1m-kO5">
+                                <frame key="frameInset" minX="33.60%" width="6.93%" height="9.57%" maxY="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <state key="normal" title="LAST" image="arrowLeft"/>
+                                <state key="selected" image="arrowLeftHighlight"/>
+                                <state key="highlighted" image="arrowLeftHighlight"/>
                                 <connections>
                                     <action selector="dismiss" destination="BYZ-38-t0r" eventType="touchUpInside" id="qw3-Lv-J8J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-No-V1S">
-                                <frame key="frameInset" minX="394" minY="302" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="NEXT"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bT-No-V1S">
+                                <frame key="frameInset" minX="59.73%" width="6.80%" height="9.57%" maxY="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <state key="normal" title="NEXT" image="arrowRight"/>
+                                <state key="selected" image="arrowRightHighlight"/>
+                                <state key="highlighted" image="arrowRightHighlight"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="1081"/>
+            <point key="canvasLocation" x="-727.28635682158927" y="1080.8"/>
         </scene>
         <!--Card View Controller-->
         <scene sceneID="Z3c-hA-72A">
@@ -230,5 +236,11 @@
     <resources>
         <image name="ID-1009881.jpg" width="2048" height="2048"/>
         <image name="Notecard" width="480" height="288"/>
+        <image name="arrowLeft" width="354" height="242"/>
+        <image name="arrowLeftHighlight" width="354" height="242"/>
+        <image name="arrowRight" width="354" height="242"/>
+        <image name="arrowRightHighlight" width="354" height="242"/>
+        <image name="rotate" width="223" height="222"/>
+        <image name="rotateHighlighted" width="223" height="222"/>
     </resources>
 </document>
