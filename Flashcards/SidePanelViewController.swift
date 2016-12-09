@@ -20,15 +20,26 @@ protocol SidePanelViewControllerDelegate {
 class SidePanelViewController: UIViewController, LoginButtonDelegate {
     
     var delegate: SidePanelViewControllerDelegate?
+    var delegate2: SidePanelViewControllerDelegate?
   
     @IBAction func viewCards(_ sender: AnyObject) {
         delegate?.closePanels()
         delegate?.segueToCards()
     }
     @IBAction func deleteDeck(_ sender: AnyObject) {
-        print(delegate)
+        if UIApplication.shared.keyWindow!.rootViewController?.presentedViewController is ContainerViewController {
+            let containView = UIApplication.shared.keyWindow!.rootViewController!.presentedViewController as! ContainerViewController
+            let navController = containView.centerNavigationController
+            if navController != nil {
+                if navController?.visibleViewController is CardCenterViewController {
+                    print("Card")
+                } else {
+                    print("deck")
+                }
+            }
+        }
         print(delegate is CenterViewController)
-        
+        //if delegate is
     }
     override func viewDidLoad() {
         super.viewDidLoad()

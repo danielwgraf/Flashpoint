@@ -317,6 +317,13 @@
                                     <action selector="deleteDeck:" destination="LW1-Xt-1km" eventType="touchUpInside" id="W0e-N5-uRa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1s-Tc-hou">
+                                <rect key="frame" x="257" y="572" width="91.5" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" image="share"/>
+                                <state key="selected" image="shareHighlighted"/>
+                                <state key="highlighted" image="shareHighlighted"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.30980392159999998" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -620,6 +627,8 @@
         <image name="optionsButton3Highlight" width="300" height="299"/>
         <image name="rotate" width="223" height="222"/>
         <image name="rotateHighlighted" width="223" height="222"/>
+        <image name="share" width="441" height="407"/>
+        <image name="shareHighlighted" width="441" height="407"/>
         <image name="trash_can" width="256" height="256"/>
         <image name="trash_can_highlighted" width="217" height="256"/>
     </resources>
