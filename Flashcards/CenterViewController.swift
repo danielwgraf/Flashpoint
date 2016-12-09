@@ -24,7 +24,7 @@ class CenterViewController: UIViewController, CardCenterViewControllerDelegate, 
 
     
     var deckCardLabels: [String] = User.getDeckNames()
-    var cardImages: [String] = ["DeckBack4.png"]
+    var cardImages: [String] = ["DeckBack4.png","SharedBackground.png"]
     var newDeck: Deck?
     var mainDeck: Deck?
     
@@ -112,7 +112,13 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: DeckCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeckCardCellIdentifier", for: indexPath) as! DeckCardCell
         cell.deckCardLabel.text = User.getDeckNames()[indexPath.row]
-        cell.deckCardImage.image = UIImage(named: cardImages[0])
+        let cardID = (User.getDeckByName(deck_name: (User.getDeckNames()[indexPath.row]))?.id)!
+        if User.sharedDecks.contains(cardID) && !User.decks.contains(cardID){
+            cell.deckCardImage.image = UIImage(named: cardImages[1])
+            cell.deckCardLabel.textColor = UIColor.black
+        } else {
+            cell.deckCardImage.image = UIImage(named: cardImages[0])
+        }
         let tapGestureRecognizer = UITapGestureRecognizer(target:cell, action:#selector(imageTapped(img:)))
         cell.deckCardImage.isUserInteractionEnabled = true
         cell.deckCardImage.addGestureRecognizer(tapGestureRecognizer)
