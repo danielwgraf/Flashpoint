@@ -82,13 +82,22 @@ class CardCenterViewController: UIViewController {
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddCard" {
+            print("1")
             let navController = segue.destination as? UINavigationController
+            print("2")
             if navController != nil {
+                print("3")
                 if navController?.visibleViewController is CardDetailsViewController {
+                    print("4")
                     let AddCard = navController?.visibleViewController as! CardDetailsViewController
+                    print("5")
                     AddCard.deck_id = mainDeck?.id
+                    print("6")
                 }
             }
+        } else if segue.identifier == "StudySegue" {
+            let viewController = segue.destination as? ViewController
+            viewController?.deck = self.mainDeck
         }
     }
     
