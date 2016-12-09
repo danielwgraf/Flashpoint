@@ -120,6 +120,7 @@ extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate
     }
     
     func toggleRightPanel() {
+        print("REACHED DELEGATE",delegate)
         delegate?.toggleRightPanel?()
     }
 }

@@ -19,7 +19,7 @@ protocol CenterViewControllerDelegate {
 
 
 
-class CenterViewController: UIViewController, SpecificDeckDelegate {
+class CenterViewController: UIViewController, CardCenterViewControllerDelegate, SpecificDeckDelegate {
     
 
     
@@ -82,6 +82,7 @@ class CenterViewController: UIViewController, SpecificDeckDelegate {
         if segue.identifier == "DeckToCard" {
             let CardCenterVC = segue.destination as? CardCenterViewController
             
+            CardCenterVC?.delegate = self
             CardCenterVC?.deckDelegate = self
             //CardCenterVC.deckNameLabel.text = "Deck"
         }
@@ -113,8 +114,8 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
         cell.deckCardLabel.text = User.getDeckNames()[indexPath.row]
         cell.deckCardImage.image = UIImage(named: cardImages[0])
         let tapGestureRecognizer = UITapGestureRecognizer(target:cell, action:#selector(imageTapped(img:)))
-        cell.deckCardLabel.isUserInteractionEnabled = true
-        cell.deckCardLabel.addGestureRecognizer(tapGestureRecognizer)
+        cell.deckCardImage.isUserInteractionEnabled = true
+        cell.deckCardImage.addGestureRecognizer(tapGestureRecognizer)
         cell.delegate = self
         return cell
     }

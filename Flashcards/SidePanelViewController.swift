@@ -25,7 +25,11 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
         delegate?.closePanels()
         delegate?.segueToCards()
     }
-    
+    @IBAction func deleteDeck(_ sender: AnyObject) {
+        print(delegate)
+        print(delegate is CenterViewController)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
