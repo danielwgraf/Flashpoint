@@ -169,10 +169,24 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     }
     
     func currentUserSetup(id: Int, facebook_id: Int) {
+//        let shared = [3]
+//        let parameters:Parameters = ["deck": [
+//            "id": 1000,
+//            "deck_name": "TestSharedDeck",
+//            "shared_ids": shared,
+//            "user_id": 4
+//            ]]
+//        
+//        print(parameters)
+//        let headers: HTTPHeaders = ["content-type": "application/json","accept": "application/json"]
+//        Alamofire.request("https://morning-castle-56124.herokuapp.com/decks", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: { response in
+//            let statusCode = response.response?.statusCode
+//            print("Deck Creation Status: ",statusCode) //201 vs 500
+//        })
         User.id = id
         User.facebook_id = facebook_id
         //User.friends = User.getUserFriends()
-        User.getUserDecks()
+        User.getFullDecks()
     }
     
     func nextAvailableId() -> Int {

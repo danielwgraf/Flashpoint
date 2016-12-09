@@ -106,7 +106,7 @@ extension CenterViewController: SidePanelViewControllerDelegate {
 extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return User.decks.count
+        return User.decks.count + User.sharedDecks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

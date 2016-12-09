@@ -15,6 +15,8 @@ class User {
     static var email: String = String()
     static var facebook_id: Int = Int()
     static var decks: [Int] = []// Will store deck ids
+    static var sharedDecks: [Int] = [] //Stores decks shared with user
+    static var fullDecks: [Int] = []
     static var friends: [Int] = []// Will store user ids
     
     
@@ -22,10 +24,13 @@ class User {
         id = -1
         email = ""
         decks = []
+        sharedDecks = []
+        fullDecks = []
         friends = []
     }
     
     class func getUserDecks() {
+        decks = []
         ServerAgent.sharedInstance.refresh()
         let allDecks = ServerAgent.sharedInstance.decks
         for deck in allDecks {
@@ -37,8 +42,30 @@ class User {
         }
     }
     
+    class func getSharedDecks() {
+        sharedDecks = []
+        ServerAgent.sharedInstance.refresh()
+        let allDecks = ServerAgent.sharedInstance.decks
+        for deck in allDecks {
+            if deck.shared_ids.contains(User.id) {
+                if !decks.contains(deck.id) {
+                    if !sharedDecks.contains(deck.id) {
+                        User.sharedDecks.append(deck.id)
+                    }
+                }
+            }
+        }
+    }
+    
+    class func getFullDecks() {
+        getUserDecks()
+        getSharedDecks()
+        fullDecks = decks+sharedDecks
+    }
+    
+    
     class func refresh() {
-        User.getUserDecks()
+        getFullDecks()
     }
     
     func getUserFriends() {
@@ -66,6 +93,13 @@ class User {
                 deckNames.append(allDecks[i!].deck_name)
             }
         }
+        for deck in User.sharedDecks {
+            let i = allIDs.index(of: deck)
+            if i != nil {
+                let editedName = allDecks[i!].deck_name+" (Shared)"
+                deckNames.append(editedName)
+            }
+        }
         return deckNames
     }
     
@@ -82,6 +116,6 @@ class User {
         User.refresh()
         let allNames = getDeckNames()
         let i = allNames.index(of: deck_name)
-        return getDeckById(id: User.decks[i!])
+        return getDeckById(id: User.fullDecks[i!])
     }
 }
