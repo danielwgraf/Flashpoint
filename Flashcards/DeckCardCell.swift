@@ -15,14 +15,21 @@ protocol DeckCardCellDelegate {
 }
 
 class DeckCardCell: UICollectionViewCell {
+    
     @IBOutlet weak var deckCardImage: UIImageView!
+    
     
     @IBAction func deckCardButton(_ sender: Any) {
         delegate?.toggleRightPanel?()
         delegate?.setMainDeck!(deckName: deckCardLabel.text!)
     }
     
+    
     @IBOutlet weak var deckCardLabel: UILabel!
     
     var delegate: DeckCardCellDelegate?
+
+    
+
 }
+

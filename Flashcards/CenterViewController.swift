@@ -112,8 +112,15 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
         let cell: DeckCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeckCardCellIdentifier", for: indexPath) as! DeckCardCell
         cell.deckCardLabel.text = User.getDeckNames()[indexPath.row]
         cell.deckCardImage.image = UIImage(named: cardImages[0])
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        cell.deckCardImage.isUserInteractionEnabled = true
+        cell.deckCardImage.addGestureRecognizer(tapGestureRecognizer)
         cell.delegate = self
         return cell
+    }
+    
+    func imageTapped(img: AnyObject){
+        segueToCards()
     }
     
     func toggleRightPanel() {

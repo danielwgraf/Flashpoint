@@ -35,7 +35,6 @@ class CardCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        print("DELEGATE: \(deckDelegate)")
         mainDeck = (deckDelegate?.setAsMainDeck())!
         deckViewLabel.text = mainDeck?.deck_name
         mainDeck?.refresh()
