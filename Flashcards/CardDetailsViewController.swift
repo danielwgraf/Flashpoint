@@ -30,7 +30,6 @@ class CardDetailsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveCardDetail" {
             
-            print(cardWordTextField,cardDefinitionTextField,deck_id)
             uploadCard(id: 500, word: cardWordTextField.text!, definition: cardDefinitionTextField.text!, deck_id: deck_id!)
             ServerAgent.sharedInstance.refresh()
             User.refresh()

@@ -22,6 +22,9 @@ class SidePanelViewController: UIViewController, LoginButtonDelegate {
     var delegate: SidePanelViewControllerDelegate?
     var delegate2: SidePanelViewControllerDelegate?
   
+    @IBAction func SeeFriends(_ sender: Any) {
+        
+    }
     @IBAction func viewCards(_ sender: AnyObject) {
         delegate?.closePanels()
         delegate?.segueToCards()

@@ -72,7 +72,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             login(token: accessToken)
         }
         
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email ])
+        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.center.x = view.center.x
         loginButton.center.y = view.center.y+200
         loginButton.delegate = self

@@ -31,6 +31,10 @@ class CardCenterViewController: UIViewController {
     @IBOutlet weak var deckViewLabel: UILabel!
     
     
+    @IBAction func refresh(_ sender: Any) {
+        User.refresh()
+        self.collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,7 @@ class CardCenterViewController: UIViewController {
         mainDeck = (deckDelegate?.setAsMainDeck())!
         deckViewLabel.text = mainDeck?.deck_name
         mainDeck?.refresh()
+        collectionView.reloadData()
     }
   
     var delegate: CardCenterViewControllerDelegate?

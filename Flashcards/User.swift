@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FacebookCore
 
 class User {
     
@@ -41,7 +42,9 @@ class User {
     }
     
     func getUserFriends() {
-        //var allUsers
+        
+        
+
     }
     class func allDeckIDs() -> [Int] {
         var allIDs: [Int] = []

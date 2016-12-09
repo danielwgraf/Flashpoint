@@ -217,7 +217,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="Cs7-T0-5MD">
                                 <connections>
-                                    <action selector="refreshTapped:" destination="JzR-84-ykI" id="Ebg-lq-369"/>
+                                    <action selector="refresh:" destination="eWV-5F-COT" id="3fx-0Y-cke"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -271,6 +271,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Friends"/>
+                                <connections>
+                                    <action selector="SeeFriends:" destination="JLv-vr-n03" eventType="touchUpInside" id="3e4-l6-GmU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745100000001" green="0.30980392159999998" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
