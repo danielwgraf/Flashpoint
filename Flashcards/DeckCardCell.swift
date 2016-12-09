@@ -12,6 +12,7 @@ import UIKit
 protocol DeckCardCellDelegate {
     @objc optional func toggleRightPanel()
     @objc optional func setMainDeck(deckName: String)
+    @objc optional func setMainDeckAndShift(deckName: String)
 }
 
 class DeckCardCell: UICollectionViewCell {
@@ -24,6 +25,9 @@ class DeckCardCell: UICollectionViewCell {
         delegate?.setMainDeck!(deckName: deckCardLabel.text!)
     }
     
+    func imageTapped(img: AnyObject){
+        delegate?.setMainDeckAndShift!(deckName: deckCardLabel.text!)
+    }
     
     @IBOutlet weak var deckCardLabel: UILabel!
     
