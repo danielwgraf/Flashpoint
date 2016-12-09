@@ -24,13 +24,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var cardNum: UILabel!
     
     @IBOutlet weak var backLabelName: UILabel!
+    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var definitionLabel: UILabel!
     
     var index:Int = 0
     var max:Int = 0
     
     var back: UIImageView!
     var front: UIImageView!
-    var showingBack = true
+    var showingBack = false
     var isPresented = true
     var deck:Deck?
     
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
         cardView.addSubview(back)
         
         backLabelName.isHidden = true
+        definitionLabel.isHidden = true
         
         var cardInfo: [(String, String)] = deck!.getCardInfo()
         frontLabelName.text = cardInfo[index].0
@@ -105,15 +108,19 @@ class ViewController: UIViewController {
     
     func tapped() {
         if (showingBack) {
-            UIView.transition(from: back, to: front, duration: 1, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
+            UIView.transition(from: back, to: front, duration: 0, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
             showingBack = false
             frontLabelName.isHidden = false
+            wordLabel.isHidden = false
             backLabelName.isHidden = true
+            definitionLabel.isHidden = true
         } else {
-            UIView.transition(from: front, to: back, duration: 1, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
+            UIView.transition(from: front, to: back, duration: 0, options: UIViewAnimationOptions.transitionFlipFromLeft, completion: nil)
             showingBack = true
             frontLabelName.isHidden = true
+            wordLabel.isHidden = true
             backLabelName.isHidden = false
+            definitionLabel.isHidden = false
         }
     }
 }
