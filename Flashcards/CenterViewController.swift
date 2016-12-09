@@ -27,6 +27,7 @@ class CenterViewController: UIViewController, CardCenterViewControllerDelegate, 
     var cardImages: [String] = ["DeckBack4.png","SharedBackground.png"]
     var newDeck: Deck?
     var mainDeck: Deck?
+    var yellow = UIColor(red: 1, green: 1, blue: 19/255, alpha: 1)
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -118,6 +119,7 @@ extension CenterViewController: UICollectionViewDataSource, DeckCardCellDelegate
             cell.deckCardLabel.textColor = UIColor.black
         } else {
             cell.deckCardImage.image = UIImage(named: cardImages[0])
+            cell.deckCardLabel.textColor = yellow
         }
         let tapGestureRecognizer = UITapGestureRecognizer(target:cell, action:#selector(imageTapped(img:)))
         cell.deckCardImage.isUserInteractionEnabled = true
