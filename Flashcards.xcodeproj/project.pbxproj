@@ -179,6 +179,8 @@
 		D72B14611DC28D8F005429F1 /* FlashcardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFA11DFD14620067D54F /* Model Tests */,
+				D7FABFA21DFD146D0067D54F /* View Controller Tests */,
 				D72B14621DC28D8F005429F1 /* FlashcardsTests.swift */,
 				D72B14641DC28D8F005429F1 /* Info.plist */,
 			);
@@ -207,11 +209,11 @@
 		D7415FCC1DDD4FEB00CBB76C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABF9C1DFD11390067D54F /* Decks */,
+				D7FABF9D1DFD11420067D54F /* Flashcards */,
+				D7FABF9E1DFD114B0067D54F /* Login */,
 				D7FABFA01DFD117A0067D54F /* Study */,
 				D7FABF9F1DFD11550067D54F /* Sidebars */,
-				D7FABF9E1DFD114B0067D54F /* Login */,
-				D7FABF9D1DFD11420067D54F /* Flashcards */,
-				D7FABF9C1DFD11390067D54F /* Decks */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -306,6 +308,84 @@
 				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
 			);
 			name = Study;
+			sourceTree = "<group>";
+		};
+		D7FABFA11DFD14620067D54F /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D7FABFA31DFD147D0067D54F /* Deck Model Tests */,
+				D7FABFA41DFD14950067D54F /* Flashcard Model Tests */,
+				D7FABFA51DFD14AC0067D54F /* Others */,
+			);
+			name = "Model Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA21DFD146D0067D54F /* View Controller Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D7FABFAA1DFD14FE0067D54F /* Deck VC Tests */,
+				D7FABFA91DFD14F20067D54F /* Flashcard VC Tests */,
+				D7FABFA81DFD14E00067D54F /* Login VC Tests */,
+				D7FABFA71DFD14D40067D54F /* Sidebars VC Tests */,
+				D7FABFA61DFD14C70067D54F /* Study VC Tests */,
+			);
+			name = "View Controller Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA31DFD147D0067D54F /* Deck Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Deck Model Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA41DFD14950067D54F /* Flashcard Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Flashcard Model Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA51DFD14AC0067D54F /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		D7FABFA61DFD14C70067D54F /* Study VC Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Study VC Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA71DFD14D40067D54F /* Sidebars VC Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sidebars VC Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA81DFD14E00067D54F /* Login VC Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Login VC Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFA91DFD14F20067D54F /* Flashcard VC Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Flashcard VC Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFAA1DFD14FE0067D54F /* Deck VC Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Deck VC Tests";
 			sourceTree = "<group>";
 		};
 		ECAE3B6662CB2B2DDE9DAEC2 /* Pods */ = {
