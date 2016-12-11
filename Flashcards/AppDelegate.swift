@@ -53,10 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Orientation
     
-    
-    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        
+        // Handles all of the checking to see if it's on the card view controller
         if self.window?.rootViewController?.presentedViewController is ContainerViewController {
             let containView = self.window!.rootViewController!.presentedViewController as! ContainerViewController
             
