@@ -9,19 +9,23 @@
 import UIKit
 import Alamofire
 
+
+/// VC to add a deck
 class DeckDetailsViewController: UITableViewController {
-    
+    /// The created deck
     var deck:Deck?
     
+    /// The field for the deck name
     @IBOutlet weak var deckNameTextField: UITextField!
     
-    
+    /// The table function. Works cause David made it
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             deckNameTextField.becomeFirstResponder()
         }
     }
     
+    /// Prepare for segue to save the deck
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveDeckDetail" {
             uploadDeck(id: 502, deck_name: deckNameTextField.text!, creator_id: User.id)
@@ -30,6 +34,7 @@ class DeckDetailsViewController: UITableViewController {
         }
     }
     
+    /// Checks first to see if the info is good before actually performing the segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "SaveDeckDetail" {
             
@@ -70,6 +75,15 @@ class DeckDetailsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     Uploads the deck to the API
+     
+     - Parameters:
+        - id: the deck ID (kind of unnecessary)
+        - deck_name: The entered name of the deck.
+        - creator_id: The ID of the user who made the deck
+ 
+    */
     func uploadDeck(id: Int, deck_name: String, creator_id: Int) {
         let parameters:Parameters = ["deck": [
             "id": id,
