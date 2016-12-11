@@ -11,29 +11,39 @@ import UIKit
 
 
 class ViewController: UIViewController {
-    
+    /// Holds the image of the card
     @IBOutlet weak var cardView: UIView!
     
-    
+    /// Flips the card
     @IBAction func buttonTapped(_ sender: UIButton) {
         tapped()
     }
     
+    /// Shows the word
     @IBOutlet weak var frontLabelName: UILabel!
-    
+    /// Shows the Card Number
     @IBOutlet weak var cardNum: UILabel!
-    
+    /// Shows the definition
     @IBOutlet weak var backLabelName: UILabel!
+    /// Shows "Word"
     @IBOutlet weak var wordLabel: UILabel!
+    /// Shows "Definition"
     @IBOutlet weak var definitionLabel: UILabel!
     
+    /// Keeps track of index
     var index:Int = 0
+    /// Keeps note of the deck max
     var max:Int = 0
     
+    /// Back Image
     var back: UIImageView!
+    /// Front Image (they're the same lol)
     var front: UIImageView!
+    /// Keeps track of side
     var showingBack = false
+    /// Keeps track if it's showing
     var isPresented = true
+    /// Variable for the deck
     var deck:Deck?
     
     
@@ -66,11 +76,13 @@ class ViewController: UIViewController {
     }
     
     // MARK: Rotate
+    /// Hit the X
     @IBAction func dismiss() {
         isPresented = false
         self.presentingViewController!.dismiss(animated: true, completion: nil);
     }
     
+    /// Hit the next button
     @IBAction func next(_ sender: AnyObject) {
         if index == max {
             index = 0
@@ -80,6 +92,7 @@ class ViewController: UIViewController {
         refresh()
     }
     
+    /// Hit the previous button
     @IBAction func prev(_ sender: AnyObject) {
         if index == 0 {
             index = max
@@ -89,6 +102,7 @@ class ViewController: UIViewController {
         refresh()
     }
     
+    /// Refreshes the cards (just in case)
     func refresh() {
         var cardInfo: [(String, String)] = deck!.getCardInfo()
         frontLabelName.text = cardInfo[index].0
@@ -96,16 +110,18 @@ class ViewController: UIViewController {
         cardNum.text = "\(index + 1) / \(cardInfo.count)"
     }
     
+    // Prevents rotation. Sticks to landscape
     override var shouldAutorotate: Bool {
         return false
     }
     
-    
+    // Basic warning thing
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /// If the rotate is tapped 
     func tapped() {
         if (showingBack) {
             UIView.transition(from: back, to: front, duration: 0, options: UIViewAnimationOptions.transitionFlipFromRight, completion: nil)
