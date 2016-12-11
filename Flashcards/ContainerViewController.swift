@@ -1,6 +1,8 @@
 //
 //  ContainerViewController.swift
 //  SlideOutNavigation
+//  
+//  Thank you James Frost and your tutorial on how to do this :)
 //
 //  Created by James Frost on 03/08/2014.
 //  Copyright (c) 2014 James Frost. All rights reserved.
@@ -14,20 +16,23 @@ enum SlideOutState {
     case leftPanelExpanded
     case rightPanelExpanded
 }
-
+/// Contains Center and sidebars
 class ContainerViewController: UIViewController {
-  
+    /// Shared Instance
     var serverAgent = ServerAgent.sharedInstance
     
+    // Center section
     var centerNavigationController: UINavigationController!
     var centerViewController: CenterViewController!
     
+    ///Checks the state of sidebars
     var currentState: SlideOutState = .bothCollapsed {
         didSet {
             let shouldShowShadow = currentState != .bothCollapsed
             showShadowForCenterViewController(shouldShowShadow)
         }
     }
+    // Left and right bars
     var leftViewController: SidePanelViewController?
     var rightViewController: SidePanelViewController?
     
@@ -35,10 +40,8 @@ class ContainerViewController: UIViewController {
     // MARK: Side Panel Slideout Distance
     let centerPanelExpandedOffsetLeft: CGFloat = UIScreen.main.bounds.width*0.6
     let centerPanelExpandedOffsetRight: CGFloat = UIScreen.main.bounds.width-150
-//    func refresh(completion: () -> Void) {
-//        serverAgent = ServerAgent.sharedInstance
-//    }
-    
+
+    // Loading thing
     override func viewDidLoad() {
         super.viewDidLoad()
         centerViewController = UIStoryboard.centerViewController()
@@ -63,7 +66,7 @@ class ContainerViewController: UIViewController {
 // MARK: CenterViewController delegate
 
 extension ContainerViewController: CenterViewControllerDelegate {
-    
+    ///Open or close the left side
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         
@@ -74,6 +77,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         animateLeftPanel(notAlreadyExpanded)
     }
     
+    ///Open or close the right side
     func toggleRightPanel() {
         let notAlreadyExpanded = (currentState != .rightPanelExpanded)
         
@@ -84,6 +88,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         animateRightPanel(notAlreadyExpanded)
     }
     
+    /// Close both sides
     func collapseSidePanels() {
         switch (currentState) {
         case .rightPanelExpanded:
@@ -95,6 +100,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         }
     }
     
+    /// Adds the left bar from Storyboard
     func addLeftPanelViewController() {
         if (leftViewController == nil) {
             leftViewController = UIStoryboard.leftViewController()
@@ -103,6 +109,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         }
     }
     
+    /// Adds the right bar from Storyboard
     func addRightPanelViewController() {
         if (rightViewController == nil) {
             rightViewController = UIStoryboard.rightViewController()
@@ -111,6 +118,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         }
     }
     
+    /// Sets up the child/parent relationship
     func addChildSidePanelController(_ sidePanelController: SidePanelViewController) {
         sidePanelController.delegate = centerViewController
     
@@ -120,7 +128,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         sidePanelController.didMove(toParentViewController: self)
     }
     
-    
+    /// Just animate the left panel
     func animateLeftPanel(_ shouldExpand: Bool) {
         if (shouldExpand) {
             currentState = .leftPanelExpanded
@@ -136,6 +144,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
         }
     }
     
+    /// Just animate the right panel
     func animateRightPanel(_ shouldExpand: Bool) {
         if (shouldExpand) {
             currentState = .rightPanelExpanded
@@ -151,13 +160,14 @@ extension ContainerViewController: CenterViewControllerDelegate {
         }
     }
     
+    ///Move the middle part when moving others
     func animateCenterPanelXPosition(_ targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.centerNavigationController.view.frame.origin.x = targetPosition
             }, completion: completion)
     }
     
-    
+    ///Adds shadows for separation of views
     func showShadowForCenterViewController(_ shouldShowShadow: Bool) {
         if (shouldShowShadow) {
             centerNavigationController.view.layer.shadowOpacity = 0.8
