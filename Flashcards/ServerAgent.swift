@@ -10,9 +10,11 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+///Class that handles all of the network calls
 class ServerAgent {
-    
+    /// List of Cards
     var cards = [Flashcard]()
+    /// List of decks
     var decks = [Deck]()
 
     init() {
