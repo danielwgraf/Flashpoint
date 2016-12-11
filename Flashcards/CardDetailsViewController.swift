@@ -12,13 +12,17 @@ import Alamofire
 
 class CardDetailsViewController: UITableViewController {
     
+    /// For the created flashcard
     var card:Flashcard?
+    /// ID of the created deck
     var deck_id: Int?
     
+    /// Inserted Word
     @IBOutlet weak var cardWordTextField: UITextField!
+    /// Inserted Definition
     @IBOutlet weak var cardDefinitionTextField: UITextField!
     
-    
+    /// Creates the insert table. Works because David made it.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             cardWordTextField.becomeFirstResponder()
@@ -27,6 +31,7 @@ class CardDetailsViewController: UITableViewController {
         }
     }
     
+    // Saves the card if that segue is hit
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveCardDetail" {
             
@@ -36,6 +41,7 @@ class CardDetailsViewController: UITableViewController {
         }
     }
     
+    // Loads the view
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -45,11 +51,22 @@ class CardDetailsViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    // Memory thing
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     Uploads the card after the User hits add
+     
+     - Parameters:
+        - id: The Card ID. Automatically made by the database
+        - word: Word inserted by the User
+        - definition: Definition inserted by the User
+        - deck_id: the deck_id of the deck that the card was created in
+     
+    */
     func uploadCard(id: Int, word: String, definition: String, deck_id: Int) {
         let parameters:Parameters = ["card": [
             "id": id,

@@ -22,20 +22,21 @@ protocol SpecificDeckDelegate {
 }
 
 
-
+/// The view when a deck is clicked on. Shows all the decks
 class CardCenterViewController: UIViewController {
-
+    /// View holding all of the decks
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    /// Name of the deck/shown on top
     @IBOutlet weak var deckViewLabel: UILabel!
     
-    
+    /// Refreshes the view (from refresh button)
     @IBAction func refresh(_ sender: Any) {
         User.refresh()
         self.collectionView.reloadData()
     }
     
+    /// Loads the view
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -44,6 +45,7 @@ class CardCenterViewController: UIViewController {
         mainDeck?.refresh()
     }
     
+    /// Reloads when the view appears (precautionary)
     override func viewDidAppear(_ animated: Bool) {
         mainDeck = (deckDelegate?.setAsMainDeck())!
         deckViewLabel.text = mainDeck?.deck_name
@@ -51,20 +53,21 @@ class CardCenterViewController: UIViewController {
         collectionView.reloadData()
     }
   
+    // Delegates that both come the deck center
     var delegate: CardCenterViewControllerDelegate?
     var deckDelegate: SpecificDeckDelegate? = nil
     
-    
+    /// The deck which the cards come from
     var mainDeck: Deck?
     
-    //User.decks.names
-    var cardLabels: [String] = ["Deck 1", "Deck 2", "Deck3", "Deck4", "Deck5", "Deck6"]
+    /// The one back image. Can be updated with more
     var cardImages: [String] = ["back-1.png"]
     
-    
+    /// Segue to cancel card creation
     @IBAction func cancelToCardCenterViewController(segue:UIStoryboardSegue) {
     }
     
+    /// Segue to save the card
     @IBAction func saveCardDetail(segue:UIStoryboardSegue) {
         //add the new player to the players array
         User.refresh()
@@ -76,28 +79,24 @@ class CardCenterViewController: UIViewController {
     
   
     // MARK: Button actions
-  
+    /// Does absolutely nothing
     @IBAction func test (_ sender: AnyObject) {
         //deckDelegate!.setAsMainDeck()
     }
   
+    /// Actually doesn't do anything but place hold
     @IBAction func studyBarTapped(_ sender: AnyObject) {
         delegate?.toggleRightPanel?()
     }
-  
+    
+    // Prepares for the two segues (adding and studying
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddCard" {
-            print("1")
             let navController = segue.destination as? UINavigationController
-            print("2")
             if navController != nil {
-                print("3")
                 if navController?.visibleViewController is CardDetailsViewController {
-                    print("4")
                     let AddCard = navController?.visibleViewController as! CardDetailsViewController
-                    print("5")
                     AddCard.deck_id = mainDeck?.id
-                    print("6")
                 }
             }
         } else if segue.identifier == "StudySegue" {
@@ -105,17 +104,17 @@ class CardCenterViewController: UIViewController {
             viewController?.deck = self.mainDeck
         }
     }
-    
 }
 
 
 
 extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate {
-    
+    // Count comes from deck size
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.mainDeck!.cards.count
     }
     
+    // Creates all of the cards
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCellIdentifier", for: indexPath) as! CardCell
         cell.cardLabel.text = mainDeck?.getCardInfo()[indexPath.row].0
@@ -124,6 +123,7 @@ extension CardCenterViewController: UICollectionViewDataSource, CardCellDelegate
         return cell
     }
     
+    /// Opens the right panel
     func toggleRightPanel() {
         delegate?.toggleRightPanel?()
     }

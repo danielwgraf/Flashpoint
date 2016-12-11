@@ -279,8 +279,8 @@
 		D7FABF9D1DFD11420067D54F /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
-				D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */,
 				D75549661DF099D900665FB0 /* CardCenterViewController.swift */,
+				D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */,
 			);
 			name = Flashcards;
 			sourceTree = "<group>";
