@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Struct that could be further used to game-ify the study process. Wasn't implemented due to time constraints, but it exists in the server as well
 struct GameRoom {
     
     let id: Int

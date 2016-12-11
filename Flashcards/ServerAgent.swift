@@ -17,20 +17,24 @@ class ServerAgent {
     /// List of decks
     var decks = [Deck]()
 
+    /// Gets both the Cards and the Decks from the API
     init() {
         self.getCards()
         self.getDecks()
     }
     
+    /// Does the same as init but helps with clarity
     func refresh() {
         self.getCards()
         self.getDecks()
     }
     
+    /// Shared version of the serveragent to ensure everyone has the same data throughout
     static let sharedInstance = ServerAgent()
 
     //MARK: Cards
     
+    /// Gets the cards from the API
     func getCards() {
         Alamofire.request("https://morning-castle-56124.herokuapp.com/cards").responseJSON {
             response in
@@ -38,6 +42,7 @@ class ServerAgent {
         }
     }
     
+    /// Parses that info into Flashcard objects
     func parseCards(JSONData: Data) {
         do {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! NSArray
@@ -61,6 +66,7 @@ class ServerAgent {
     
     //MARK: Decks
     
+    /// Gets the decks from the API
     func getDecks() {
         Alamofire.request("https://morning-castle-56124.herokuapp.com/decks").responseJSON {
             response in
@@ -68,6 +74,7 @@ class ServerAgent {
         }
     }
     
+    /// Parses that info into Deck objects
     func parseDecks(JSONData: Data) {
         do {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! NSArray
