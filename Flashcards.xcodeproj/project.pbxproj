@@ -17,12 +17,8 @@
 		D72B146E1DC28D8F005429F1 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B146D1DC28D8F005429F1 /* FlashcardsUITests.swift */; };
 		D72EEBF6552C816E2EAEB592 /* Pods_FlashcardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */; };
 		D7415FCA1DDD4FCA00CBB76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7415FC81DDD4FCA00CBB76C /* Main.storyboard */; };
-		D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FCD1DDD516100CBB76C /* CardViewController.swift */; };
 		D7415FD11DDD682300CBB76C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7415FCF1DDD682300CBB76C /* Login.storyboard */; };
 		D7415FD21DDD682300CBB76C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD01DDD682300CBB76C /* LoginViewController.swift */; };
-		D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */; };
-		D7415FD81DDDEC3900CBB76C /* DeckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */; };
-		D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */; };
 		D7415FE21DDDF5E100CBB76C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7415FE01DDDF5E100CBB76C /* TableViewCell.swift */; };
 		D7415FE31DDDF5E100CBB76C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7415FE11DDDF5E100CBB76C /* TableViewCell.xib */; };
 		D75549561DEF80A200665FB0 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75549511DEF80A200665FB0 /* Deck.swift */; };
@@ -81,12 +77,8 @@
 		D72B146D1DC28D8F005429F1 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		D72B146F1DC28D8F005429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7415FC91DDD4FCA00CBB76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Flashcards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D7415FCD1DDD516100CBB76C /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		D7415FCF1DDD682300CBB76C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D7415FD01DDD682300CBB76C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
-		D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewController.swift; sourceTree = "<group>"; };
-		D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckListViewModel.swift; sourceTree = "<group>"; };
 		D7415FE01DDDF5E100CBB76C /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D7415FE11DDDF5E100CBB76C /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		D75549511DEF80A200665FB0 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deck.swift; path = flashcards/Deck.swift; sourceTree = "<group>"; };
@@ -177,7 +169,6 @@
 				D7415FDF1DDDF58C00CBB76C /* Nibs */,
 				D7415FCB1DDD4FD900CBB76C /* Storyboards */,
 				D7415FCC1DDD4FEB00CBB76C /* View Controllers */,
-				D7415FDC1DDDED5400CBB76C /* View Models */,
 				D72B144D1DC28D8F005429F1 /* AppDelegate.swift */,
 				D72B14541DC28D8F005429F1 /* Assets.xcassets */,
 				D72B14591DC28D8F005429F1 /* Info.plist */,
@@ -216,17 +207,11 @@
 		D7415FCC1DDD4FEB00CBB76C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */,
-				D7415FCD1DDD516100CBB76C /* CardViewController.swift */,
-				D75549661DF099D900665FB0 /* CardCenterViewController.swift */,
-				D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */,
-				D75549671DF099D900665FB0 /* ContainerViewController.swift */,
-				D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */,
-				D7415FD71DDDEC3900CBB76C /* DeckListViewController.swift */,
-				D7415FD51DDD6D1B00CBB76C /* DeckViewController.swift */,
-				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
-				D75549681DF099D900665FB0 /* SidePanelViewController.swift */,
-				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
+				D7FABFA01DFD117A0067D54F /* Study */,
+				D7FABF9F1DFD11550067D54F /* Sidebars */,
+				D7FABF9E1DFD114B0067D54F /* Login */,
+				D7FABF9D1DFD11420067D54F /* Flashcards */,
+				D7FABF9C1DFD11390067D54F /* Decks */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -234,23 +219,13 @@
 		D7415FD91DDDEC5100CBB76C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D7E5A58C1DF92169005D06C1 /* CardCell.swift */,
-				D7E5A58A1DF91A7F005D06C1 /* DeckCardCell.swift */,
-				D75549511DEF80A200665FB0 /* Deck.swift */,
-				D75549531DEF80A200665FB0 /* Flashcard.swift */,
+				D7FABF9B1DFD11100067D54F /* Decks */,
+				D7FABF9A1DFD10FB0067D54F /* Flashcards */,
 				D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */,
 				D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */,
 				D7C98CA71DF88B6A000E42C5 /* User.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		D7415FDC1DDDED5400CBB76C /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-				D7415FDA1DDDED1600CBB76C /* DeckListViewModel.swift */,
-			);
-			name = "View Models";
 			sourceTree = "<group>";
 		};
 		D7415FDF1DDDF58C00CBB76C /* Nibs */ = {
@@ -270,6 +245,67 @@
 				D75549551DEF80A200665FB0 /* ViewController2.swift */,
 			);
 			name = MOVED;
+			sourceTree = "<group>";
+		};
+		D7FABF9A1DFD10FB0067D54F /* Flashcards */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5A58C1DF92169005D06C1 /* CardCell.swift */,
+				D75549531DEF80A200665FB0 /* Flashcard.swift */,
+			);
+			name = Flashcards;
+			sourceTree = "<group>";
+		};
+		D7FABF9B1DFD11100067D54F /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5A58A1DF91A7F005D06C1 /* DeckCardCell.swift */,
+				D75549511DEF80A200665FB0 /* Deck.swift */,
+			);
+			name = Decks;
+			sourceTree = "<group>";
+		};
+		D7FABF9C1DFD11390067D54F /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */,
+				D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */,
+			);
+			name = Decks;
+			sourceTree = "<group>";
+		};
+		D7FABF9D1DFD11420067D54F /* Flashcards */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */,
+				D75549661DF099D900665FB0 /* CardCenterViewController.swift */,
+			);
+			name = Flashcards;
+			sourceTree = "<group>";
+		};
+		D7FABF9E1DFD114B0067D54F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D7415FD01DDD682300CBB76C /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D7FABF9F1DFD11550067D54F /* Sidebars */ = {
+			isa = PBXGroup;
+			children = (
+				D75549671DF099D900665FB0 /* ContainerViewController.swift */,
+				D75549681DF099D900665FB0 /* SidePanelViewController.swift */,
+			);
+			name = Sidebars;
+			sourceTree = "<group>";
+		};
+		D7FABFA01DFD117A0067D54F /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				D72B144F1DC28D8F005429F1 /* ViewController.swift */,
+			);
+			name = Study;
 			sourceTree = "<group>";
 		};
 		ECAE3B6662CB2B2DDE9DAEC2 /* Pods */ = {
@@ -575,24 +611,20 @@
 				D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */,
 				D7E5A5931DF9A6EB005D06C1 /* CardDetailsViewController.swift in Sources */,
 				D755496A1DF099D900665FB0 /* ContainerViewController.swift in Sources */,
-				D7415FDB1DDDED1600CBB76C /* DeckListViewModel.swift in Sources */,
 				D75549561DEF80A200665FB0 /* Deck.swift in Sources */,
 				D7E5A5911DF98B4D005D06C1 /* DeckDetailsViewController.swift in Sources */,
 				D7C98CA61DF88AAE000E42C5 /* GameRoom.swift in Sources */,
 				D7E5A58B1DF91A7F005D06C1 /* DeckCardCell.swift in Sources */,
-				D7415FD81DDDEC3900CBB76C /* DeckListViewController.swift in Sources */,
 				D7415FE21DDDF5E100CBB76C /* TableViewCell.swift in Sources */,
 				D72B14501DC28D8F005429F1 /* ViewController.swift in Sources */,
 				D7E5A58F1DF9234E005D06C1 /* CenterViewController.swift in Sources */,
 				D75549581DEF80A200665FB0 /* Flashcard.swift in Sources */,
 				D75549571DEF80A200665FB0 /* DefinitionViewController.swift in Sources */,
 				D755495A1DEF80A200665FB0 /* ViewController2.swift in Sources */,
-				D7415FD61DDD6D1B00CBB76C /* DeckViewController.swift in Sources */,
 				D7E5A58D1DF92169005D06C1 /* CardCell.swift in Sources */,
 				D7C98CA81DF88B6A000E42C5 /* User.swift in Sources */,
 				D755496B1DF099D900665FB0 /* SidePanelViewController.swift in Sources */,
 				D72B144E1DC28D8F005429F1 /* AppDelegate.swift in Sources */,
-				D7415FCE1DDD516100CBB76C /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
