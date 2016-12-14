@@ -1,0 +1,141 @@
+ [{
+  "id": 1,
+  "word": "Test",
+  "definition": "Test2",
+  "deck_id": 5
+  }, {
+  "id": 2,
+  "word": "word",
+  "definition": "wordword",
+  "deck_id": 5
+  }, {
+  "id": 3,
+  "word": "Wubmo",
+  "definition": "The study of wumbology",
+  "deck_id": 5
+  }, {
+  "id": 4,
+  "word": "test",
+  "definition": "test",
+  "deck_id": 3
+  }, {
+  "id": 5,
+  "word": "Test",
+  "definition": "Please",
+  "deck_id": 6
+  }, {
+  "id": 6,
+  "word": "test",
+  "definition": "testtt",
+  "deck_id": 6
+  }, {
+  "id": 7,
+  "word": "Card 5",
+  "definition": "Actually 3 though",
+  "deck_id": 6
+  }, {
+  "id": 8,
+  "word": "Mitochondrai",
+  "definition": "The powerhouse of the cell",
+  "deck_id": 7
+  }, {
+  "id": 9,
+  "word": "Endoplasmic Reticulum",
+  "definition": "Fuck if I know",
+  "deck_id": 7
+  }, {
+  "id": 10,
+  "word": "Derp",
+  "definition": "Herp",
+  "deck_id": 7
+  }, {
+  "id": 11,
+  "word": "Gravity",
+  "definition": "Stay the hell away from me",
+  "deck_id": 8
+  }, {
+  "id": 12,
+  "word": "Albert Einstein",
+  "definition": "Invented a theory about relatives and potentially cousins",
+  "deck_id": 8
+  }, {
+  "id": 13,
+  "word": "Word 1",
+  "definition": "Word 2",
+  "deck_id": 4
+  }, {
+  "id": 14,
+  "word": "TestCard",
+  "definition": "Test1",
+  "deck_id": 1
+  }, {
+  "id": 15,
+  "word": "Test Word 2",
+  "definition": "Definition",
+  "deck_id": 1
+  }, {
+  "id": 16,
+  "word": "Mohin",
+  "definition": "Banker",
+  "deck_id": 13
+  }, {
+  "id": 17,
+  "word": "Mitochondria ",
+  "definition": "the powerhouse of the cell",
+  "deck_id": 15
+  }, {
+  "id": 18,
+  "word": "hola",
+  "definition": "hello",
+  "deck_id": 16
+  }, {
+  "id": 19,
+  "word": "Zapato",
+  "definition": "shoe",
+  "deck_id": 16
+  }, {
+  "id": 20,
+  "word": "iPhone",
+  "definition": "Utter trash",
+  "deck_id": 17
+  }, {
+  "id": 21,
+  "word": "Swift",
+  "definition": "Python, but worse",
+  "deck_id": 17
+  }, {
+  "id": 22,
+  "word": "Card",
+  "definition": "Definitely ",
+  "deck_id": 18
+  }, {
+  "id": 23,
+  "word": "word",
+  "definition": "deff",
+  "deck_id": 18
+  }, {
+  "id": 24,
+  "word": "Card",
+  "definition": "Card",
+  "deck_id": 2
+  }, {
+  "id": 25,
+  "word": "One",
+  "definition": "The loneliest number",
+  "deck_id": 19
+  }, {
+  "id": 26,
+  "word": "Two",
+  "definition": "Can be just as bad as one",
+  "deck_id": 19
+  }, {
+  "id": 27,
+  "word": "Christine",
+  "definition": "The preettiest girl in duh world ;)",
+  "deck_id": 19
+  }, {
+  "id": 28,
+  "word": "David",
+  "definition": "Adequate.",
+  "deck_id": 19
+  }]

@@ -29,11 +29,12 @@ class UserModelTests: XCTestCase {
     }
 
     func testGetUserDecks() {
+        let data = loadJSONTestData(filename: "deckData")
+        ServerAgent.sharedInstance.parseDecks(JSONData: data as! Data)
         User.id = 3
         XCTAssertEqual(User.decks.count, 0)
         
         User.getUserDecks()
-        sleep(5)
         XCTAssertEqual(User.decks.count, 11)
     }
     
@@ -42,7 +43,6 @@ class UserModelTests: XCTestCase {
         XCTAssertEqual(User.sharedDecks.count, 0)
         
         User.getSharedDecks()
-        sleep(5)
         XCTAssertEqual(User.sharedDecks.count, 1)
     }
     
@@ -51,7 +51,6 @@ class UserModelTests: XCTestCase {
         XCTAssertEqual(User.fullDecks.count, 0)
         
         User.getFullDecks()
-        sleep(5)
         XCTAssertEqual(User.decks.count, 12)
     }
 //
@@ -60,4 +59,10 @@ class UserModelTests: XCTestCase {
 //    class func getDeckById(id: Int) -> Deck?
 //    
 //    class func getDeckByName(deck_name: String) -> Deck?
+    
+    func loadJSONTestData(filename: String) -> NSData? {
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: filename, ofType: "json")
+        return NSData(contentsOfFile: path!)
+    }
 }

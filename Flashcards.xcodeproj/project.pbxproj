@@ -40,6 +40,9 @@
 		D7FABFAE1E00AFD30067D54F /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFAD1E00AFD30067D54F /* UserModelTests.swift */; };
 		D7FABFB01E00B2BA0067D54F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFAF1E00B2BA0067D54F /* LoginVCTests.swift */; };
 		D7FABFB31E011FBF0067D54F /* ServerAgentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */; };
+		D7FABFB61E0134180067D54F /* deckData.json in Resources */ = {isa = PBXBuildFile; fileRef = D7FABFB51E0134180067D54F /* deckData.json */; };
+		D7FABFBA1E0182FC0067D54F /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = D7FABFB91E0182FC0067D54F /* userData.json */; };
+		D7FABFBC1E0183700067D54F /* cardData.json in Resources */ = {isa = PBXBuildFile; fileRef = D7FABFBB1E0183700067D54F /* cardData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		D7FABFAD1E00AFD30067D54F /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
 		D7FABFAF1E00B2BA0067D54F /* LoginVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
 		D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAgentTest.swift; sourceTree = "<group>"; };
+		D7FABFB51E0134180067D54F /* deckData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = deckData.json; sourceTree = "<group>"; };
+		D7FABFB91E0182FC0067D54F /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
+		D7FABFBB1E0183700067D54F /* cardData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cardData.json; sourceTree = "<group>"; };
 		E751B7996D3461F3222C2C2E /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashcardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -185,6 +191,7 @@
 		D72B14611DC28D8F005429F1 /* FlashcardsTests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFB41E01312F0067D54F /* Resources */,
 				D7FABFA11DFD14620067D54F /* Model Tests */,
 				D7FABFA21DFD146D0067D54F /* View Controller Tests */,
 				D72B14621DC28D8F005429F1 /* FlashcardsTests.swift */,
@@ -320,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				D7FABFB11E011F8B0067D54F /* ServerAgent Model Tests */,
-				D7FABFA31DFD147D0067D54F /* Deck Model Tests */,
 				D7FABFA51DFD14AC0067D54F /* User Model Tests */,
 			);
 			name = "Model Tests";
@@ -332,13 +338,6 @@
 				D7FABFA81DFD14E00067D54F /* Login VC Tests */,
 			);
 			name = "View Controller Tests";
-			sourceTree = "<group>";
-		};
-		D7FABFA31DFD147D0067D54F /* Deck Model Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Deck Model Tests";
 			sourceTree = "<group>";
 		};
 		D7FABFA51DFD14AC0067D54F /* User Model Tests */ = {
@@ -363,6 +362,16 @@
 				D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */,
 			);
 			name = "ServerAgent Model Tests";
+			sourceTree = "<group>";
+		};
+		D7FABFB41E01312F0067D54F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7FABFB51E0134180067D54F /* deckData.json */,
+				D7FABFB91E0182FC0067D54F /* userData.json */,
+				D7FABFBB1E0183700067D54F /* cardData.json */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		ECAE3B6662CB2B2DDE9DAEC2 /* Pods */ = {
@@ -508,6 +517,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FABFBA1E0182FC0067D54F /* userData.json in Resources */,
+				D7FABFB61E0134180067D54F /* deckData.json in Resources */,
+				D7FABFBC1E0183700067D54F /* cardData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

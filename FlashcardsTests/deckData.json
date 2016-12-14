@@ -1,0 +1,96 @@
+[{
+  "id": 1,
+  "deck_name": "New Test Deck",
+  "shared_ids": [3],
+  "user_id": 3
+  }, {
+  "id": 2,
+  "deck_name": "Brand New Deck!",
+  "shared_ids": [3],
+  "user_id": 3
+  }, {
+  "id": 3,
+  "deck_name": "TestDeck",
+  "shared_ids": [3],
+  "user_id": 3
+  }, {
+  "id": 4,
+  "deck_name": "Retest",
+  "shared_ids": [3],
+  "user_id": 3
+  }, {
+  "id": 5,
+  "deck_name": "Deck 1",
+  "shared_ids": [3, 4],
+  "user_id": 4
+  }, {
+  "id": 6,
+  "deck_name": "deck",
+  "shared_ids": [3],
+  "user_id": 3
+  }, {
+  "id": 7,
+  "deck_name": "Biology",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 8,
+  "deck_name": "Physics",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 9,
+  "deck_name": "TestSharedDeck",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 10,
+  "deck_name": "TestSharedDeck",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 11,
+  "deck_name": "TestSharedDeck",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 12,
+  "deck_name": "TestSharedDeck",
+  "shared_ids": [],
+  "user_id": 4
+  }, {
+  "id": 13,
+  "deck_name": "Test Deck for Mohin",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 14,
+  "deck_name": "Test again",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 15,
+  "deck_name": "Biology",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 16,
+  "deck_name": "Spanish",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 17,
+  "deck_name": "442",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 18,
+  "deck_name": "Deck",
+  "shared_ids": [],
+  "user_id": 3
+  }, {
+  "id": 19,
+  "deck_name": "christine and david!!!",
+  "shared_ids": [],
+  "user_id": 4
+  }]

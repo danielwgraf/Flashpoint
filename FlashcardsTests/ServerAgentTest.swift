@@ -13,6 +13,7 @@ import Alamofire
 
 
 class ServerAgentTest: XCTestCase {
+    let serverAgent = ServerAgent()
     
     override func setUp() {
         super.setUp()
@@ -42,10 +43,26 @@ class ServerAgentTest: XCTestCase {
     }
     
     func testParseCardsHelper(JSONData: Data) {
-        let serverAgent = ServerAgent()
         let results = serverAgent.parseCards(JSONData: JSONData)
         
         XCTAssertNotNil(results)
+    }
+    
+    func testParseCardsWithData() {
+        let data = loadJSONTestData(filename: "cardData")
+        print("\n\n\n\ndata = \(data)")
+        serverAgent.parseCards(JSONData: data as! Data)
+        sleep(5)
+        let results = serverAgent.cards
+        
+        XCTAssertEqual(28, results.count)
+        
+        let first = results.first
+        
+        XCTAssertEqual(1, first?.id)
+        XCTAssertEqual("Test", first?.word)
+        XCTAssertEqual("Test2", first?.definition)
+        XCTAssertEqual(5, first?.deck_id)
     }
     
     func testGetDecks() {
@@ -66,10 +83,46 @@ class ServerAgentTest: XCTestCase {
     }
     
     func testParseDecksHelper(JSONData: Data) {
-        let serverAgent = ServerAgent()
         let results = serverAgent.parseDecks(JSONData: JSONData)
         
         XCTAssertNotNil(results)
+    }
+    
+    func testParseDecksWithData() {
+        let data = loadJSONTestData(filename: "deckData")
+        serverAgent.parseDecks(JSONData: data as! Data)
+        let results = serverAgent.decks
+        
+        XCTAssertEqual(19, results.count)
+        
+        let first = results.first!
+        XCTAssertEqual(1, first.id)
+        XCTAssertEqual("New Test Deck", first.deck_name)
+        XCTAssertEqual(3, first.creator_id)
+        XCTAssertEqual([3], first.shared_ids)
+    }
+    
+    func loadJSONTestData(filename: String) -> NSData? {
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: filename, ofType: "json")
+        return NSData(contentsOfFile: path!)
+//        let bundle = Bundle(for: type(of: self))
+//        if let path = bundle.path(forResource: filename, ofType: "json") {
+//            do {
+//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+//                let jsonObj = JSON(data: data)
+//                if jsonObj != JSON.null {
+//                    print("jsonData:\(jsonObj)")
+//                } else {
+//                    print("Could not get json from file, make sure that file contains valid json.")
+//                }
+//            } catch let error {
+//                print("Error with JSON:",error.localizedDescription)
+//            }
+//        } else {
+//            print("Invalid filename/path.")
+//        }
+//        return Data(base64Encoded: "")
     }
     
 }

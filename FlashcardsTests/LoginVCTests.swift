@@ -12,6 +12,7 @@ import Alamofire
 @testable import Flashcards
 
 class LoginVCTests: XCTestCase {
+    let loginViewController = LoginViewController()
     
     override func setUp() {
         super.setUp()
@@ -26,7 +27,6 @@ class LoginVCTests: XCTestCase {
     func testCheckIfUserExists() {
         let real_facebook_id = 1020976866
         let fake_facebook_id = 1234567890
-        let loginViewController = LoginViewController()
         loginViewController.users = [(3,1020976866),(4,105981677)]
         loginViewController.facebook_id = real_facebook_id
         XCTAssertTrue(loginViewController.checkIfUserExists())
@@ -36,7 +36,6 @@ class LoginVCTests: XCTestCase {
     }
     
     func testNextAvailableId() {
-        let loginViewController = LoginViewController()
         loginViewController.users = []
         XCTAssertEqual(3, loginViewController.nextAvailableId())
         
@@ -66,10 +65,10 @@ class LoginVCTests: XCTestCase {
     }
     
     func testParseUsersHelper(JSONData: Data) {
-        let loginViewController = LoginViewController()
         let results = loginViewController.parseUsers(JSONData: JSONData)
         
         XCTAssertNotNil(results)
     }
+    
     
 }
