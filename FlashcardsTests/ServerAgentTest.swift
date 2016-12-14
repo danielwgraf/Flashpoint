@@ -25,6 +25,8 @@ class ServerAgentTest: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        ServerAgent.sharedInstance.cards = []
+        ServerAgent.sharedInstance.decks = []
     }
     
     func testGetCards() {
@@ -50,9 +52,7 @@ class ServerAgentTest: XCTestCase {
     
     func testParseCardsWithData() {
         let data = loadJSONTestData(filename: "cardData")
-        print("\n\n\n\ndata = \(data)")
         serverAgent.parseCards(JSONData: data as! Data)
-        sleep(5)
         let results = serverAgent.cards
         
         XCTAssertEqual(28, results.count)
@@ -106,23 +106,6 @@ class ServerAgentTest: XCTestCase {
         let bundle = Bundle(for: type(of: self))
         let path = bundle.path(forResource: filename, ofType: "json")
         return NSData(contentsOfFile: path!)
-//        let bundle = Bundle(for: type(of: self))
-//        if let path = bundle.path(forResource: filename, ofType: "json") {
-//            do {
-//                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-//                let jsonObj = JSON(data: data)
-//                if jsonObj != JSON.null {
-//                    print("jsonData:\(jsonObj)")
-//                } else {
-//                    print("Could not get json from file, make sure that file contains valid json.")
-//                }
-//            } catch let error {
-//                print("Error with JSON:",error.localizedDescription)
-//            }
-//        } else {
-//            print("Invalid filename/path.")
-//        }
-//        return Data(base64Encoded: "")
     }
     
 }

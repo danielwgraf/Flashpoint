@@ -13,12 +13,13 @@ import XCTest
 class UserModelTests: XCTestCase {
     override func setUp() {
         User.reset()
-        User.id = 42
-        User.facebook_id = 1234
-        User.decks = []
-        //User.
+        ServerAgent.sharedInstance.refresh()
+        User.id = 3
+        User.facebook_id = 1020976866
+        let data = loadJSONTestData(filename: "deckData")
+        ServerAgent.sharedInstance.parseDecks(JSONData: data as! Data)
     }
-
+    
     func testReset() {
         User.reset()
         XCTAssertEqual(User.id, -1)
@@ -27,11 +28,8 @@ class UserModelTests: XCTestCase {
         XCTAssertEqual(User.sharedDecks, [])
         XCTAssertEqual(User.fullDecks, [])
     }
-
+    
     func testGetUserDecks() {
-        let data = loadJSONTestData(filename: "deckData")
-        ServerAgent.sharedInstance.parseDecks(JSONData: data as! Data)
-        User.id = 3
         XCTAssertEqual(User.decks.count, 0)
         
         User.getUserDecks()
@@ -39,26 +37,56 @@ class UserModelTests: XCTestCase {
     }
     
     func testGetSharedDecks() {
-        User.id = 3
         XCTAssertEqual(User.sharedDecks.count, 0)
         
+        // Need to get regular decks for the check to work
+        User.getUserDecks()
         User.getSharedDecks()
         XCTAssertEqual(User.sharedDecks.count, 1)
     }
     
     func testGetFullDecks() {
-        User.id = 3
         XCTAssertEqual(User.fullDecks.count, 0)
         
         User.getFullDecks()
-        XCTAssertEqual(User.decks.count, 12)
+        XCTAssertEqual(User.fullDecks.count, 12)
     }
-//
-//    class func getDeckNames() -> [String]
-//    
-//    class func getDeckById(id: Int) -> Deck?
-//    
-//    class func getDeckByName(deck_name: String) -> Deck?
+    
+    func testGetDeckNames() {
+        User.getUserDecks()
+        User.getSharedDecks()
+        let deckNames = User.getDeckNames()
+        
+        XCTAssertEqual(deckNames.count, 12)
+        XCTAssertEqual(deckNames.first, "New Test Deck")
+        XCTAssertEqual(deckNames.last, "Deck 1 (Shared)")
+    }
+    
+    func testGetDeckById() {
+        var deck1 = Deck(id: 1, deck_name: "New Test Deck", creator_id: 3)
+        deck1.shared_ids = [3]
+        
+        XCTAssertEqual(User.getDeckById(id: 1)!.id, deck1.id)
+        XCTAssertEqual(User.getDeckById(id: 1)!.deck_name, deck1.deck_name)
+        XCTAssertEqual(User.getDeckById(id: 1)!.creator_id, deck1.creator_id)
+        XCTAssertEqual(User.getDeckById(id: 1)!.shared_ids, deck1.shared_ids)
+        
+        // Non-Existent Deck
+        XCTAssertNil(User.getDeckById(id: 100))
+    }
+    
+    func testGetDeckByName() {
+        var deck1 = Deck(id: 1, deck_name: "New Test Deck", creator_id: 3)
+        deck1.shared_ids = [3]
+        
+        XCTAssertEqual(User.getDeckByName(deck_name: "New Test Deck")!.id, deck1.id)
+        XCTAssertEqual(User.getDeckByName(deck_name: "New Test Deck")!.deck_name, deck1.deck_name)
+        XCTAssertEqual(User.getDeckByName(deck_name: "New Test Deck")!.creator_id, deck1.creator_id)
+        XCTAssertEqual(User.getDeckByName(deck_name: "New Test Deck")!.shared_ids, deck1.shared_ids)
+        
+        // Non-Existent Deck
+        XCTAssertNil(User.getDeckByName(deck_name: "Non-Existent Deck"))
+    }
     
     func loadJSONTestData(filename: String) -> NSData? {
         let bundle = Bundle(for: type(of: self))

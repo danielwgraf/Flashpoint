@@ -43,11 +43,6 @@ class LoginVCTests: XCTestCase {
         XCTAssertEqual(5, loginViewController.nextAvailableId())
     }
     
-    func testCreateUser() {
-        
-    }
-    
-    
     func testGetUsers() {
         let urlString = "https://morning-castle-56124.herokuapp.com/users"
         let request = Alamofire.request(urlString)

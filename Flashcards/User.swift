@@ -89,8 +89,8 @@ class User {
      Takes the list of all of the decks (from the serveragent) and returns them as a list of IDs
      
      - Returns: A list of Int IDs
- 
-    */
+     
+     */
     class func allDeckIDs() -> [Int] {
         var allIDs: [Int] = []
         let allDecks = ServerAgent.sharedInstance.decks
@@ -134,15 +134,18 @@ class User {
      - Parameter id: The ID of the desired deck
      
      - Returns: The deck if it exists. Otherwise nil.
- 
+     
      */
     class func getDeckById(id: Int) -> Deck? {
         User.refresh()
         var allDecks = ServerAgent.sharedInstance.decks
         let allIDs = allDeckIDs()
         let i = allIDs.index(of: id)
-        allDecks[i!].refresh()
-        return allDecks[i!]
+        if i != nil {
+            allDecks[i!].refresh()
+            return allDecks[i!]
+        }
+        return nil
     }
     
     /**
@@ -157,6 +160,9 @@ class User {
         User.refresh()
         let allNames = getDeckNames()
         let i = allNames.index(of: deck_name)
-        return getDeckById(id: User.fullDecks[i!])
+        if i != nil {
+            return getDeckById(id: User.fullDecks[i!])
+        }
+        return nil
     }
 }

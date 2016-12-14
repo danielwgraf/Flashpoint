@@ -32,6 +32,7 @@
 		D7C98CA41DF7F59F000E42C5 /* ServerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */; };
 		D7C98CA61DF88AAE000E42C5 /* GameRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */; };
 		D7C98CA81DF88B6A000E42C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98CA71DF88B6A000E42C5 /* User.swift */; };
+		D7D9B2F11E01A5C400767E70 /* DeckModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D9B2F01E01A5C400767E70 /* DeckModelTests.swift */; };
 		D7E5A58B1DF91A7F005D06C1 /* DeckCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58A1DF91A7F005D06C1 /* DeckCardCell.swift */; };
 		D7E5A58D1DF92169005D06C1 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58C1DF92169005D06C1 /* CardCell.swift */; };
 		D7E5A58F1DF9234E005D06C1 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */; };
@@ -98,6 +99,7 @@
 		D7C98CA31DF7F59F000E42C5 /* ServerAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAgent.swift; sourceTree = "<group>"; };
 		D7C98CA51DF88AAE000E42C5 /* GameRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoom.swift; sourceTree = "<group>"; };
 		D7C98CA71DF88B6A000E42C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D7D9B2F01E01A5C400767E70 /* DeckModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckModelTests.swift; sourceTree = "<group>"; };
 		D7E5A58A1DF91A7F005D06C1 /* DeckCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckCardCell.swift; sourceTree = "<group>"; };
 		D7E5A58C1DF92169005D06C1 /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 			name = MOVED;
 			sourceTree = "<group>";
 		};
+		D7D9B2EF1E01A5AD00767E70 /* Deck Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D7D9B2F01E01A5C400767E70 /* DeckModelTests.swift */,
+			);
+			name = "Deck Model Tests";
+			sourceTree = "<group>";
+		};
 		D7FABF9A1DFD10FB0067D54F /* Flashcards */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +336,7 @@
 		D7FABFA11DFD14620067D54F /* Model Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7D9B2EF1E01A5AD00767E70 /* Deck Model Tests */,
 				D7FABFB11E011F8B0067D54F /* ServerAgent Model Tests */,
 				D7FABFA51DFD14AC0067D54F /* User Model Tests */,
 			);
@@ -701,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D9B2F11E01A5C400767E70 /* DeckModelTests.swift in Sources */,
 				D7FABFAE1E00AFD30067D54F /* UserModelTests.swift in Sources */,
 				D7FABFB01E00B2BA0067D54F /* LoginVCTests.swift in Sources */,
 				D7FABFB31E011FBF0067D54F /* ServerAgentTest.swift in Sources */,
