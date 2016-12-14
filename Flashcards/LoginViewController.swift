@@ -101,6 +101,8 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                     // Divide by 10million because FB_ID is too large
                     self.facebook_id = (Int(id as! String)!)/10000000
                     self.getUsers()
+                    
+                    
                 }
             }
         }
@@ -108,14 +110,12 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     }
     
     /// Checks if the user exists, and either creates or gets the userID
-    func checkIfUserExists() {
+    func checkIfUserExists() -> Bool {
         let facebook_ids = self.users.map{$0.1}
-        if let index = facebook_ids.index(of: self.facebook_id){
-            print("contains")
-            currentUserSetup(id: self.users[index].0, facebook_id: self.facebook_id)
+        if facebook_ids.index(of: self.facebook_id) != nil{
+            return true
         } else {
-            print("create")
-            createUser()
+            return false
         }
         
     }
@@ -145,7 +145,20 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         catch {
             print(error)
         }
-        checkIfUserExists()
+        userCheck()
+    }
+    
+    /// Runs after the users are parsed
+    func userCheck() {
+        if self.checkIfUserExists() {
+            print("contains")
+            let facebook_ids = self.users.map{$0.1}
+            let index = facebook_ids.index(of: self.facebook_id)
+            self.currentUserSetup(id: self.users[index!].0, facebook_id: self.facebook_id)
+        } else {
+            print("create")
+            self.createUser()
+        }
     }
     
     /// Creates the user if it wasn't found and sends it to the API

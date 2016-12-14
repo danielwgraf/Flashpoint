@@ -37,6 +37,9 @@
 		D7E5A58F1DF9234E005D06C1 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */; };
 		D7E5A5911DF98B4D005D06C1 /* DeckDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */; };
 		D7E5A5931DF9A6EB005D06C1 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */; };
+		D7FABFAE1E00AFD30067D54F /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFAD1E00AFD30067D54F /* UserModelTests.swift */; };
+		D7FABFB01E00B2BA0067D54F /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFAF1E00B2BA0067D54F /* LoginVCTests.swift */; };
+		D7FABFB31E011FBF0067D54F /* ServerAgentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,9 @@
 		D7E5A58E1DF9234E005D06C1 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		D7E5A5901DF98B4D005D06C1 /* DeckDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckDetailsViewController.swift; sourceTree = "<group>"; };
 		D7E5A5921DF9A6EB005D06C1 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
+		D7FABFAD1E00AFD30067D54F /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
+		D7FABFAF1E00B2BA0067D54F /* LoginVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
+		D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAgentTest.swift; sourceTree = "<group>"; };
 		E751B7996D3461F3222C2C2E /* Pods-Flashcards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.debug.xcconfig"; sourceTree = "<group>"; };
 		F63477BDD6A74B959DF3C418 /* Pods_FlashcardsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashcardsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -313,9 +319,9 @@
 		D7FABFA11DFD14620067D54F /* Model Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFB11E011F8B0067D54F /* ServerAgent Model Tests */,
 				D7FABFA31DFD147D0067D54F /* Deck Model Tests */,
-				D7FABFA41DFD14950067D54F /* Flashcard Model Tests */,
-				D7FABFA51DFD14AC0067D54F /* Others */,
+				D7FABFA51DFD14AC0067D54F /* User Model Tests */,
 			);
 			name = "Model Tests";
 			sourceTree = "<group>";
@@ -323,11 +329,7 @@
 		D7FABFA21DFD146D0067D54F /* View Controller Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D7FABFAA1DFD14FE0067D54F /* Deck VC Tests */,
-				D7FABFA91DFD14F20067D54F /* Flashcard VC Tests */,
 				D7FABFA81DFD14E00067D54F /* Login VC Tests */,
-				D7FABFA71DFD14D40067D54F /* Sidebars VC Tests */,
-				D7FABFA61DFD14C70067D54F /* Study VC Tests */,
 			);
 			name = "View Controller Tests";
 			sourceTree = "<group>";
@@ -339,53 +341,28 @@
 			name = "Deck Model Tests";
 			sourceTree = "<group>";
 		};
-		D7FABFA41DFD14950067D54F /* Flashcard Model Tests */ = {
+		D7FABFA51DFD14AC0067D54F /* User Model Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFAD1E00AFD30067D54F /* UserModelTests.swift */,
 			);
-			name = "Flashcard Model Tests";
-			sourceTree = "<group>";
-		};
-		D7FABFA51DFD14AC0067D54F /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Others;
-			sourceTree = "<group>";
-		};
-		D7FABFA61DFD14C70067D54F /* Study VC Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Study VC Tests";
-			sourceTree = "<group>";
-		};
-		D7FABFA71DFD14D40067D54F /* Sidebars VC Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Sidebars VC Tests";
+			name = "User Model Tests";
 			sourceTree = "<group>";
 		};
 		D7FABFA81DFD14E00067D54F /* Login VC Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFAF1E00B2BA0067D54F /* LoginVCTests.swift */,
 			);
 			name = "Login VC Tests";
 			sourceTree = "<group>";
 		};
-		D7FABFA91DFD14F20067D54F /* Flashcard VC Tests */ = {
+		D7FABFB11E011F8B0067D54F /* ServerAgent Model Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D7FABFB21E011FBF0067D54F /* ServerAgentTest.swift */,
 			);
-			name = "Flashcard VC Tests";
-			sourceTree = "<group>";
-		};
-		D7FABFAA1DFD14FE0067D54F /* Deck VC Tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Deck VC Tests";
+			name = "ServerAgent Model Tests";
 			sourceTree = "<group>";
 		};
 		ECAE3B6662CB2B2DDE9DAEC2 /* Pods */ = {
@@ -712,6 +689,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7FABFAE1E00AFD30067D54F /* UserModelTests.swift in Sources */,
+				D7FABFB01E00B2BA0067D54F /* LoginVCTests.swift in Sources */,
+				D7FABFB31E011FBF0067D54F /* ServerAgentTest.swift in Sources */,
 				D72B14631DC28D8F005429F1 /* FlashcardsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

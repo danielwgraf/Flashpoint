@@ -30,6 +30,7 @@ class User {
     /// Reset function that should be used on logout.
     class func reset() {
         id = -1
+        facebook_id = -1
         email = ""
         decks = []
         sharedDecks = []
